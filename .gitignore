@@ -1,0 +1,58 @@
+# ==========================================
+# Node.js & Függőségek
+# ==========================================
+# A letöltött npm csomagok (ezeket a Docker / npm install újra letölti)
+node_modules/
+**/node_modules/
+
+# npm logfájlok
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ==========================================
+# Build & Kódkimenetek
+# ==========================================
+# TypeScript fordítási kimenetek és Vite build mappa
+dist/
+**/dist/
+build/
+**/build/
+
+# Vite és egyéb keretrendszerek ideiglenes cache-jei
+.vite/
+**/.vite/
+.eslintcache
+
+# ==========================================
+# Érzékeny Adatok & Környezeti Változók
+# ==========================================
+# Titkos jelszavakat, API kulcsokat tartalmazó fájlok
+.env
+.env.local
+.env.*.local
+
+# ==========================================
+# IDE & Szerkesztő Fájlok
+# ==========================================
+# VS Code és fejlesztői eszközök saját beállításai
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# ==========================================
+# Operációs Rendszer Fájlok
+# ==========================================
+# macOS és Windows ideiglenes fájljai
+.DS_Store
+Thumbs.db
+
+# ==========================================
+# Docker & Neo4j Ideiglenes Adatok
+# ==========================================
+# Ha esetleg a helyi Neo4j adatbázis adatait a projekten belülre mentenéd
+neo4j_data/
