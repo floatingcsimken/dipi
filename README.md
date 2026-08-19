@@ -1,15 +1,20 @@
-# Paraméteres támadói use case-ek hasonlóság alapú elemzése és predikációja korlátozott adathalmazokon
+# Threat Intelligence Decision Support Platform (OODA)
 
-## Techonlógiák
+Egy gráfalapú kiberbiztonsági döntéstámogató rendszer, amely a **STIX 2.1** szabványt, a **MITRE ATT&CK** keretrendszert és az **OODA (Observe–Orient–Decide–Act)** döntési ciklust integrálja incidensek attribúciójára és mitigációjára.
 
-### Neo4j
+---
 
-Adatbázis amiben tároljuk a támadói adatokat, a különböző csoportokat, támadásokat, kampányokat, használt technikákat
+## 🏗️ Architektúra és Rendszerterv
 
-### Node.js Express
+A rendszer három fő rétegből áll:
 
-Backend az adatbázis és frontend között
+1. **Neo4j Gráf Adatbázis:** STIX 2.1 fenyegetettségi entitások (`ThreatActor`, `Identity`, `Malware`, `AttackPattern`, `CourseOfAction`) és kapcsolataik tárolása.
+2. **Backend (Node.js & Express + TypeScript):**
+   * Rétegzett architektúra: `Controllers` ➔ `Services` ➔ `Repositories`.
+   * Hasonlósági pontozó algoritmus (Similarity Scoring) a támadói profilok rangsorolására.
+   * Predikciós motor és mitigációs ajánlórendszer.
+3. **Frontend (React + Vite + Tailwind CSS):**
+   * SOC-fókuszú, sötét témájú OODA irányítópult.
+   * Incidens-bemeneti űrlap és dinamikus attribúciós vizualizáció.
 
-### React
-
-Frontend amellyel az OODA / F3EAD ciklusokat megjelenítjük
+---
