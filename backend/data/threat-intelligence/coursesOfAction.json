@@ -1,0 +1,106 @@
+{
+  "type": "bundle",
+  "id": "bundle--courses-of-action-master-v1",
+  "spec_version": "2.1",
+  "title": "STIX 2.1 Comprehensive Courses of Action Data (Mitigations)",
+  "description": "Kiterjedt védelmi intézkedések, sérülékenység-javítások és elhárítási lépések a felderített fenyegetésekre az OODA Decide/Act fázisok támogatásához.",
+  "created": "2026-08-10T10:00:00.000Z",
+  "objects": [
+    {
+      "stix_id": "course-of-action--f5c10000-1111-4000-8000-000000000001",
+      "type": "course-of-action",
+      "name": "Outlook NTLM Mitigáció (CVE-2023-23397)",
+      "description": "Kimenő SMB (TCP 445) forgalom blokkolása a tűzfalon a vállalati hálózatból az internet felé, valamint a Microsoft Outlook KB5023151 biztonsági frissítésének azonnali telepítése.",
+      "action_type": "mitigate",
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "course-of-action--f5c10000-1111-4000-8000-000000000002",
+      "type": "course-of-action",
+      "name": "Hardveres / FIDO2 Kétfaktoros Hitelesítés (MFA)",
+      "description": "Fizikai biztonsági kulcs (FIDO2 / YubiKey) vagy alkalmazás-alapú TOTP MFA kikényszerítése minden kimenő VPN, Cloud (Office 365, Google Workspace) és levelezési hozzáférésnél az adathalász kampányok megelőzésére.",
+      "action_type": "mitigate",
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "course-of-action--f5c10000-1111-4000-8000-000000000003",
+      "type": "course-of-action",
+      "name": "Log4j2 (Log4Shell) Rendszerfrissítés",
+      "description": "Az Apache Log4j2 komponens azonnali frissítése a 2.17.1 vagy újabb verzióra, vagy a '-Dlog4j2.formatMsgNoLookups=true' JVM paraméter beállítása.",
+      "action_type": "remediate",
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "course-of-action--f5c10000-1111-4000-8000-000000000004",
+      "type": "course-of-action",
+      "name": "Immutable & Air-Gapped Biztonsági Mentések",
+      "description": "3-2-1 mentési szabály bevezetése: legalább egy lényeges adatmentés fizikai/működési értelemben leválasztott (Air-Gapped) immutable elszigetelt tárolóban tartása a LockBit, NotPetya és ALPHV jellegű titkosítások és mentéstörlések ellen.",
+      "action_type": "mitigate",
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "course-of-action--f5c10000-1111-4000-8000-000000000005",
+      "type": "course-of-action",
+      "name": "PowerShell Constrained Language Mode & Auditing",
+      "description": "PowerShell Script Block Logging és Transcription bekapcsolása, valamint nem rendszergazdai felhasználóknál a Constrained Language Mode kikényszerítése az APT28/APT29 szkript-alapú kódvégrehajtásai ellen.",
+      "action_type": "mitigate",
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "course-of-action--f5c10000-1111-4000-8000-000000000006",
+      "type": "course-of-action",
+      "name": "LSASS Memóriavédelem & Credential Guard",
+      "description": "Windows Credential Guard engedélyezése és az LSA protection (RunAsPPL) bekapcsolása a Mimikatz típusú jelszó- és LSASS memóriatörlési támadások megakadályozására.",
+      "action_type": "mitigate",
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "course-of-action--f5c10000-1111-4000-8000-000000000007",
+      "type": "course-of-action",
+      "name": "Hálózati Szegmentáció & Zero Trust RDP Korlátozás",
+      "description": "A belső hálózat szigorú VLAN/Mikrosegmentációja, az RDP (TCP 3389) és SMB (TCP 445) protokollok közvetlen elérésének letiltása a végpontok között az oldalirányú mozgás (Lateral Movement) megelőzésére.",
+      "action_type": "mitigate",
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "course-of-action--f5c10000-1111-4000-8000-000000000008",
+      "type": "course-of-action",
+      "name": "E-mail Biztonság: SPF, DKIM és DMARC Kikényszerítés",
+      "description": "Szigorú DMARC 'reject' házirend, DKIM aláírás és SPF rekordok beállítása a tartománynevek védelmére, valamint AI-alapú adathalászatszűrő (BEC/Spearphishing) alkalmazása a levelezőszervereken.",
+      "action_type": "mitigate",
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "course-of-action--f5c10000-1111-4000-8000-000000000009",
+      "type": "course-of-action",
+      "name": "Citrix ADC / NetScaler RCE Javítás (CVE-2023-35192)",
+      "description": "A Citrix távoli hozzáférési átjárók azonnali frissítése a gyártó által kiadott legújabb javítócsomagra, és a munkamenetek MFA-alapú újrahitelesítése.",
+      "action_type": "remediate",
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "course-of-action--f5c10000-1111-4000-8000-000000000010",
+      "type": "course-of-action",
+      "name": "EDR / XDR Végpontvédelmi Viselkedéselemzés",
+      "description": "Központilag felügyelt EDR (Endpoint Detection and Response) szoftver telepítése minden munkaállomásra és szerverre, amely képes a memória-befecskendezések (Process Injection) és a szokatlan parancssori folyamatok automatikus blokkolására.",
+      "action_type": "mitigate",
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "course-of-action--f5c10000-1111-4000-8000-000000000011",
+      "type": "course-of-action",
+      "name": "MS17-010 (EternalBlue) & SMBv1 Teljes Kivezetése",
+      "description": "Az elavult SMBv1 protokoll teljes letiltása minden Windows rendszeren a hálózatban, és az MS17-010 biztonsági frissítés kötelező ellenőrzése a WannaCry és NotPetya terjedésének megakadályozására.",
+      "action_type": "remediate",
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "course-of-action--f5c10000-1111-4000-8000-000000000012",
+      "type": "course-of-action",
+      "name": "Szoftveres Ellátási Lánc (Supply Chain) Audit",
+      "description": "A harmadik féltől származó szoftverfrissítések és kódtárak digitális aláírásának szigorú ellenőrzése, valamint a beszállítói hozzáférések elszigetelése (Vendor Access Management).",
+      "action_type": "mitigate",
+      "created": "2026-08-10T10:00:00.000Z"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "type": "bundle",
+  "id": "bundle--organizations-reference-master-v1",
+  "spec_version": "2.1",
+  "title": "STIX 2.1 Target Organizations Data",
+  "description": "Kiemelt hazai és európai célzott szervezetek, intézmények és cégek (STIX Identity SDO - organization class).",
+  "created": "2026-08-08T10:00:00.000Z",
+  "objects": [
+    {
+      "stix_id": "identity--b5212345-1111-4000-8000-000000000011",
+      "type": "identity",
+      "name": "Országos Korányi Intézet",
+      "identity_class": "organization",
+      "sectors": ["healthcare"],
+      "description": "Magyarországi egészségügyi Intézmény. Zsarolóvírusok és egészségügyi adatszivárogtatási kampányok célpontja.",
+      "created": "2026-08-08T10:00:00.000Z"
+    },
+    {
+      "stix_id": "identity--b5212345-1111-4000-8000-000000000012",
+      "type": "identity",
+      "name": "Semmelweis Egyetem",
+      "identity_class": "organization",
+      "sectors": ["healthcare"],
+      "description": "Kiemelt magyar orvostudományi egyetem és klinikai központ. Akadémiai és kutatási kiberkémkedés célpontja.",
+      "created": "2026-08-08T10:00:00.000Z"
+    },
+    {
+      "stix_id": "identity--b5212345-1111-4000-8000-000000000021",
+      "type": "identity",
+      "name": "OTP Bank",
+      "identity_class": "organization",
+      "sectors": ["financial-services"],
+      "description": "Közép- és Kelet-Európa egyik legnagyobb független bankcsoportja. DDoS, adathalászat és banki trojan kampányok elsődleges célpontja.",
+      "created": "2026-08-08T10:00:00.000Z"
+    },
+    {
+      "stix_id": "identity--b5212345-1111-4000-8000-000000000022",
+      "type": "identity",
+      "name": "Magyar Nemzeti Bank (MNB)",
+      "identity_class": "organization",
+      "sectors": ["financial-services", "government"],
+      "description": "Magyarország jegybankja. Nemzetállami fenyegetési szereplők targetált kiberkémkedési célpontja.",
+      "created": "2026-08-08T10:00:00.000Z"
+    },
+    {
+      "stix_id": "identity--b5212345-1111-4000-8000-000000000031",
+      "type": "identity",
+      "name": "Nemzeti Kibervédelmi Intézet (NKI)",
+      "identity_class": "organization",
+      "sectors": ["government"],
+      "description": "A magyar kormányzati kibervédelemért és incidenskezelésért (CERT-HU) felelős szervezeti egység.",
+      "created": "2026-08-08T10:00:00.000Z"
+    },
+    {
+      "stix_id": "identity--b5212345-1111-4000-8000-000000000041",
+      "type": "identity",
+      "name": "MVM Csoport",
+      "identity_class": "organization",
+      "sectors": ["energy"],
+      "description": "Magyar energetikai nemzeti vállalat. Kritikus infrastruktúra szabotázs és SCADA fenyegetések célpontja.",
+      "created": "2026-08-08T10:00:00.000Z"
+    },
+    {
+      "stix_id": "identity--b5212345-2222-4000-8000-000000000011",
+      "type": "identity",
+      "name": "Charité – Universitätsmedizin Berlin",
+      "identity_class": "organization",
+      "sectors": ["healthcare"],
+      "description": "Európa egyik legnagyobb egyetemi kórháza (Németország). Zsarolóvírus támadások kiemelt európai célpontja.",
+      "created": "2026-08-08T10:00:00.000Z"
+    },
+    {
+      "stix_id": "identity--b5212345-2222-4000-8000-000000000021",
+      "type": "identity",
+      "name": "European Central Bank (ECB)",
+      "identity_class": "organization",
+      "sectors": ["financial-services"],
+      "description": "Az euróövezet központi bankja (Frankfurt). Állami APT csoportok és fejlett pénzügyi kiberkémkedés célpontja.",
+      "created": "2026-08-08T10:00:00.000Z"
+    },
+    {
+      "stix_id": "identity--b5212345-2222-4000-8000-000000000031",
+      "type": "identity",
+      "name": "European Commission (EC)",
+      "identity_class": "organization",
+      "sectors": ["government"],
+      "description": "Az Európai Unió végrehajtó szerve (Brüsszel). Geopolitikai kiberkémkedés (APT28, APT29, Kínai APT-k) állandó célpontja.",
+      "created": "2026-08-08T10:00:00.000Z"
+    }
+  ]
+}

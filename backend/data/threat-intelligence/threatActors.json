@@ -1,0 +1,154 @@
+{
+  "type": "bundle",
+  "id": "bundle--threat-actors-master-v1",
+  "spec_version": "2.1",
+  "title": "STIX 2.1 Comprehensive Threat Actors Data",
+  "description": "Magyarországot, Közép-Európát és a nemzetközi szektort az elmúlt évtizedben ért kiberfenyegetések állami (APT) és bűnözői szereplői (STIX Threat Actor SDO).",
+  "created": "2026-08-10T10:00:00.000Z",
+  "objects": [
+    {
+      "stix_id": "threat-actor--7c9a1234-9999-4000-8000-000000000099",
+      "type": "threat-actor",
+      "name": "APT29",
+      "description": "Oroszország Külső Hírszerző Szolgálatához (SVR) köthető elit kiberkémkedési csoport. Felelős a magyar Külügyminisztérium (KKM) és számos európai diplomáciai hálózat elleni tartós behatolásokért.",
+      "threat_actor_types": ["nation-state"],
+      "aliases": ["Cozy Bear", "NOBELIUM", "Midnight Blizzard", "The Dukes"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "threat-actor--7c9a1234-9999-4000-8000-000000000028",
+      "type": "threat-actor",
+      "name": "APT28",
+      "description": "Orosz katonai hírszerzéshez (GRU 26165) köthető kiberkémkedési csoport. Felelős a magyar Védelmi Beszerzési Ügynökség (VBÜ), NATO tisztségviselők és európai parlamentek elleni akciókért.",
+      "threat_actor_types": ["nation-state"],
+      "aliases": ["Fancy Bear", "Pawn Storm", "Strontium", "Forest Blizzard"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "threat-actor--7c9a1234-9999-4000-8000-000000000044",
+      "type": "threat-actor",
+      "name": "Sandworm Team",
+      "description": "Orosz GRU (74455 egység) által irányított destruktív kberszabotázs csoport. Hírhedt az ukrán áramhálózat leállításáról, a NotPetya zsarolóvírusról és európai logisztikai hálózatok megbénításáról.",
+      "threat_actor_types": ["nation-state"],
+      "aliases": ["Voodoo Bear", "Telebots", "Seashell Blizzard"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "threat-actor--7c9a1234-9999-4000-8000-000000000012",
+      "type": "threat-actor",
+      "name": "Turla",
+      "description": "Orosz Szövetségi Biztonsági Szolgálathoz (FSB) köthető, rendkívül fejlett kiberkémkedési csoport. Főként európai kormányzati, külügyi és katonai hálózatok mély kompromittálására szakosodott.",
+      "threat_actor_types": ["nation-state"],
+      "aliases": ["Snake", "Krypton", "Uroburos", "Secret Blizzard"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "threat-actor--7c9a1234-9999-4000-8000-000000000013",
+      "type": "threat-actor",
+      "name": "Gamaredon Group",
+      "description": "Orosz FSB-hez köthető kelet-európai műveleti csoport. Tömeges adathalász kampányokat folytat Ukrajna és a szomszédos közép-kelet-európai államok kritikus szervei ellen.",
+      "threat_actor_types": ["nation-state"],
+      "aliases": ["Primitive Bear", "Armageddon", "Aqua Blizzard"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "threat-actor--7c9a1234-9999-4000-8000-000000000014",
+      "type": "threat-actor",
+      "name": "Cadet Blizzard",
+      "description": "Orosz GRU kiber-egység. Kelet-európai kormányzati és kritikus infrastruktúra weboldalak megbénítására, defacement akciókra és adatmegsemmisítő (wiper) támadásokra specializálódott.",
+      "threat_actor_types": ["nation-state"],
+      "aliases": ["Ember Bear", "DEV-0586"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "threat-actor--7c9a1234-9999-4000-8000-000000000041",
+      "type": "threat-actor",
+      "name": "APT41",
+      "description": "Kínai államilag szponzorált és egyben pénzügyileg is motivált kiberbűnözői csoport. Felelős európai telekommunikációs szolgáltatók, szoftveres beszállítói láncok (Supply Chain) és védelmi cégek feltöréséért.",
+      "threat_actor_types": ["nation-state", "criminal"],
+      "aliases": ["Double Dragon", "BARIUM", "Brass Typhoon"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "threat-actor--7c9a1234-9999-4000-8000-000000000031",
+      "type": "threat-actor",
+      "name": "APT31",
+      "description": "Kínai állami kiberkémkedési csoport. Európai parlamenti képviselők, kormányzati tisztviselők, think-tankek és kutatóintézetek elleni célzott adathalászati műveleteiről ismert.",
+      "threat_actor_types": ["nation-state"],
+      "aliases": ["Zirconium", "Violet Typhoon", "Judgment Panda"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "threat-actor--7c9a1234-9999-4000-8000-000000000032",
+      "type": "threat-actor",
+      "name": "Mustang Panda",
+      "description": "Kínai kiberkémkedési alakulat. Kifejezetten az Európai Unió tagállamainak külügyminisztériumait és kelet-európai diplomáciai csatornáit célozza fegyverzett dokumentumokkal.",
+      "threat_actor_types": ["nation-state"],
+      "aliases": ["Bronze President", "RedDelta", "Camaro Dragon"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "threat-actor--7c9a1234-9999-4000-8000-000000000033",
+      "type": "threat-actor",
+      "name": "Volt Typhoon",
+      "description": "Fejlett kínai állami kibercsoport. Fő profilja a kritikus infrastruktúrákba (energetika, telekom, szállítás) való észrevétlen beépülés jövőbeli szabotázsakciók előkészítésére.",
+      "threat_actor_types": ["nation-state"],
+      "aliases": ["Vanguard Panda", "BRONZE SILHOUETTE"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "threat-actor--7c9a1234-9999-4000-8000-000000000077",
+      "type": "threat-actor",
+      "name": "Lazarus Group",
+      "description": "Észak-Kóreához köthető kiberformáció. Banki SWIFT hálózatok, európai védelmi ipari beszállítók és kriptovaluta-tőzsdék elleni milliárdos rablások és kémakciók elkövetője.",
+      "threat_actor_types": ["nation-state", "criminal"],
+      "aliases": ["HIDDEN COBRA", "Labyrinth Chollima", "APT38"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "threat-actor--7c9a1234-9999-4000-8000-000000000051",
+      "type": "threat-actor",
+      "name": "MuddyWater",
+      "description": "Iráni Hírszerzési Minisztériumhoz (MOIS) köthető kibercsoport. Magyarországot és a közép-európai régiót is érintő kiberkémkedési és kormányzati adathalász kampányok végrehajtója.",
+      "threat_actor_types": ["nation-state"],
+      "aliases": ["Static Kitten", "Mango Sandstorm", "MERCURY"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "threat-actor--7c9a1234-9999-4000-8000-000000000052",
+      "type": "threat-actor",
+      "name": "Charming Kitten",
+      "description": "Iráni Forradalmi Gárdához (IRGC) köthető csoport. Európai gondolkodóhelyek (think-tankek), kutatóintézetek és diplomáciai szakértők elleni célzott adathalászatért felelős.",
+      "threat_actor_types": ["nation-state"],
+      "aliases": ["Mint Sandstorm", "PHOSPHORUS", "TA453"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "threat-actor--7c9a1234-9999-4000-8000-000000000007",
+      "type": "threat-actor",
+      "name": "FIN7",
+      "description": "Rendkívül szervezetelten működő kiberbűnözői szindikátus. Bankok, pénzintézetek és európai kereskedelmi hálózatok elleni milliárdos kárösszegű pénzszerző akciók elkövetője.",
+      "threat_actor_types": ["criminal"],
+      "aliases": ["Carbanak Group", "Sangma Kitten", "Elbrus"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "threat-actor--7c9a1234-9999-4000-8000-000000000088",
+      "type": "threat-actor",
+      "name": "LockBit Gang",
+      "description": "A világ vezető Ransomware-as-a-Service (RaaS) kiberbűnözői hálózata. Felelős a magyar Védelmi Beszerzési Ügynökség (VBÜ), európai kórházláncok és ipari vállalkozások elleni adatszivárogtató zsarolótámadásokért.",
+      "threat_actor_types": ["criminal"],
+      "aliases": ["LockBit Supp", "Gold Supplier"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "threat-actor--7c9a1234-9999-4000-8000-000000000089",
+      "type": "threat-actor",
+      "name": "ALPHV / BlackCat",
+      "description": "Fejlett orosz nyelvű zsarolóvírus-csoport. Európai energetikai terminálok, gázvezeték-üzemeltetők és logisztikai cégek elleni romboló zsarolótámadások elkövetője.",
+      "threat_actor_types": ["criminal"],
+      "aliases": ["Noberus", "BlackCat Gang"],
+      "created": "2026-08-10T10:00:00.000Z"
+    }
+  ]
+}

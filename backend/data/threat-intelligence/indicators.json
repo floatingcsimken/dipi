@@ -1,0 +1,175 @@
+{
+  "type": "bundle",
+  "id": "bundle--indicators-master-v1",
+  "spec_version": "2.1",
+  "title": "STIX 2.1 Comprehensive Indicators Data (IoCs)",
+  "description": "Technikai gyanús jelek, kompromittálódási indikátorok (IoC-k: domainek, IP-címek, fájl-hashek) a hazai és európai incidensek OODA Observe fázisának támogatásához.",
+  "created": "2026-08-10T10:00:00.000Z",
+  "objects": [
+    {
+      "stix_id": "indicator--e4b10000-1111-4000-8000-000000000001",
+      "type": "indicator",
+      "name": "MFA Adathalász Domain (APT28 / VBÜ Kampány)",
+      "description": "A magyar védelmi szektor elleni adathalászatra használt hamis bejelentkezési portál domain címe.",
+      "pattern_type": "stix",
+      "pattern": "[domain-name:value = 'login-gov-hu-verify.com']",
+      "valid_from": "2026-01-15T00:00:00.000Z",
+      "indicator_types": ["malicious-activity"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "indicator--e4b10000-1111-4000-8000-000000000002",
+      "type": "indicator",
+      "name": "Cobalt Strike C2 Server IP (LockBit Gang)",
+      "description": "Zsarolóvírus-kampányokban használt parancsnoki (C2) szerver IP-címe.",
+      "pattern_type": "stix",
+      "pattern": "[ipv4-addr:value = '185.220.101.45']",
+      "valid_from": "2026-03-01T00:00:00.000Z",
+      "indicator_types": ["malicious-activity"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "indicator--e4b10000-1111-4000-8000-000000000003",
+      "type": "indicator",
+      "name": "NotPetya Wiper Fájl SHA-256 Hash",
+      "description": "A NotPetya pusztító kártevő indítóállományának egyedi SHA-256 lenyomata.",
+      "pattern_type": "stix",
+      "pattern": "[file:hashes.'SHA-256' = '027150422e3769239932a3f9530519f10630da98e617d121764eb8673752e2e7']",
+      "valid_from": "2026-01-01T00:00:00.000Z",
+      "indicator_types": ["malicious-activity"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "indicator--e4b10000-1111-4000-8000-000000000004",
+      "type": "indicator",
+      "name": "APT29 KKM Kémprogram Parancsnoki IP",
+      "description": "A külügyi hálózatok ellen használt rejtett kommunikációs végpont.",
+      "pattern_type": "stix",
+      "pattern": "[ipv4-addr:value = '193.109.112.89']",
+      "valid_from": "2025-11-10T00:00:00.000Z",
+      "indicator_types": ["malicious-activity"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "indicator--e4b10000-1111-4000-8000-000000000005",
+      "type": "indicator",
+      "name": "Citrix RCE Exploit Pásztázó IP (APT41)",
+      "description": "Európai kritikus infrastruktúra rendszereit kereső és pásztázó támadó IP-cím.",
+      "pattern_type": "stix",
+      "pattern": "[ipv4-addr:value = '45.154.255.12']",
+      "valid_from": "2026-02-20T00:00:00.000Z",
+      "indicator_types": ["malicious-activity"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "indicator--e4b10000-1111-4000-8000-000000000006",
+      "type": "indicator",
+      "name": "LockBit 3.0 Encryptor Executable Hash",
+      "description": "A LockBit zsarolóvírus fő titkosító moduljának SHA-256 azonosítója.",
+      "pattern_type": "stix",
+      "pattern": "[file:hashes.'SHA-256' = 'a123b456c789d012e345f6789a012b345c6789d012e345f6789a012b345c6789']",
+      "valid_from": "2026-02-01T00:00:00.000Z",
+      "indicator_types": ["malicious-activity"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "indicator--e4b10000-1111-4000-8000-000000000007",
+      "type": "indicator",
+      "name": "Turla Snake Backdoor C2 Domain",
+      "description": "Diplomáciai kémkedésre használt rejtett C2 infrastruktúra domain neve.",
+      "pattern_type": "stix",
+      "pattern": "[domain-name:value = 'diplomatic-news-update.org']",
+      "valid_from": "2025-09-01T00:00:00.000Z",
+      "indicator_types": ["malicious-activity"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "indicator--e4b10000-1111-4000-8000-000000000008",
+      "type": "indicator",
+      "name": "WannaCry Ransomware Dropper Hash",
+      "description": "A WannaCry fertőzésért felelős fegyverzett kód SHA-256 lenyomata.",
+      "pattern_type": "stix",
+      "pattern": "[file:hashes.'SHA-256' = 'ed01edf7032219e9d8831c5752442523939f1e56b26f6b923f60bad50e281b3f']",
+      "valid_from": "2025-05-01T00:00:00.000Z",
+      "indicator_types": ["malicious-activity"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "indicator--e4b10000-1111-4000-8000-000000000009",
+      "type": "indicator",
+      "name": "Gamaredon Phishing Host IP",
+      "description": "Kelet-európai intézmények ellen használt adathalász kiszolgáló IP-címe.",
+      "pattern_type": "stix",
+      "pattern": "[ipv4-addr:value = '91.240.118.170']",
+      "valid_from": "2026-04-10T00:00:00.000Z",
+      "indicator_types": ["malicious-activity"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "indicator--e4b10000-1111-4000-8000-000000000010",
+      "type": "indicator",
+      "name": "Mustang Panda PlugX C2 Domain",
+      "description": "Kínai kiberkémkedési akcióban használt parancsnoki szerver címe.",
+      "pattern_type": "stix",
+      "pattern": "[domain-name:value = 'update-service-cloud.net']",
+      "valid_from": "2026-03-15T00:00:00.000Z",
+      "indicator_types": ["malicious-activity"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "indicator--e4b10000-1111-4000-8000-000000000011",
+      "type": "indicator",
+      "name": "HermeticWiper Driver File Hash",
+      "description": "A lemeztörlő wiper által használt kártékony driver SHA-256 hash-e.",
+      "pattern_type": "stix",
+      "pattern": "[file:hashes.'SHA-256' = '1bc0270d360f77930184f526b150c95333550e68e4a9e5254199c0d3a5a703d1']",
+      "valid_from": "2026-01-20T00:00:00.000Z",
+      "indicator_types": ["malicious-activity"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "indicator--e4b10000-1111-4000-8000-000000000012",
+      "type": "indicator",
+      "name": "Lazarus SWIFT Attack Relay IP",
+      "description": "Banki rendszer elleni akcióban használt proxy IP-cím.",
+      "pattern_type": "stix",
+      "pattern": "[ipv4-addr:value = '175.45.176.80']",
+      "valid_from": "2025-08-12T00:00:00.000Z",
+      "indicator_types": ["malicious-activity"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "indicator--e4b10000-1111-4000-8000-000000000013",
+      "type": "indicator",
+      "name": "MuddyWater POWERSTAR Payload URL",
+      "description": "Kormányzati adathalászat során letöltött kártékony fájl URL címe.",
+      "pattern_type": "stix",
+      "pattern": "[url:value = 'http://185.161.248.55/payload.ps1']",
+      "valid_from": "2026-02-18T00:00:00.000Z",
+      "indicator_types": ["malicious-activity"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "indicator--e4b10000-1111-4000-8000-000000000014",
+      "type": "indicator",
+      "name": "Mimikatz Password Dumper SHA-256",
+      "description": "Memóriamásoló Mimikatz eszköz ismert fájl-hash azonosítója.",
+      "pattern_type": "stix",
+      "pattern": "[file:hashes.'SHA-256' = '9f83a21a221f00882e3540019e0b12c3f876d29b2b5281d227f311c08a202111']",
+      "valid_from": "2025-01-01T00:00:00.000Z",
+      "indicator_types": ["malicious-activity"],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "indicator--e4b10000-1111-4000-8000-000000000015",
+      "type": "indicator",
+      "name": "ALPHV BlackCat Ransomware C2 IP",
+      "description": "Európai energetikai cég elleni támadásban használt parancsnoki IP.",
+      "pattern_type": "stix",
+      "pattern": "[ipv4-addr:value = '194.26.29.112']",
+      "valid_from": "2026-03-22T00:00:00.000Z",
+      "indicator_types": ["malicious-activity"],
+      "created": "2026-08-10T10:00:00.000Z"
+    }
+  ]
+}

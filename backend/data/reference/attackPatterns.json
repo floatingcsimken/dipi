@@ -1,0 +1,443 @@
+{
+  "type": "bundle",
+  "id": "bundle--attack-patterns-reference-master-v1",
+  "spec_version": "2.1",
+  "title": "STIX 2.1 Reference Attack Patterns Data (MITRE ATT&CK)",
+  "description": "Kiemelt, iparágban leggyakrabban használt MITRE ATT&CK technikák és altechnikák törzsadatai a CTI elemzésekhez (STIX Attack Pattern SDO).",
+  "created": "2026-08-10T10:00:00.000Z",
+  "objects": [
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000000001595",
+      "type": "attack-pattern",
+      "name": "Active Scanning",
+      "description": "Hálózati eszközök, IP-tartományok és nyitott portok aktív pásztázása sérülékenységek felderítésére.",
+      "external_id": "T1595",
+      "kill_chain_phases": ["reconnaissance"],
+      "is_subtechnique": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1595",
+          "url": "https://attack.mitre.org/techniques/T1595/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000015950001",
+      "type": "attack-pattern",
+      "name": "Scanning IP Blocks",
+      "description": "Teljes IP-cím tartományok szisztematikus pásztázása a célpont infrastruktúrájának feltérképezésére.",
+      "external_id": "T1595.001",
+      "kill_chain_phases": ["reconnaissance"],
+      "is_subtechnique": true,
+      "parent_external_id": "T1595",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1595.001",
+          "url": "https://attack.mitre.org/techniques/T1595/001/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000000001583",
+      "type": "attack-pattern",
+      "name": "Acquire Infrastructure",
+      "description": "Saját infrastruktúra (szerverek, domainek, IP-címek) vásárlása vagy bérlése a műveletek támogatására.",
+      "external_id": "T1583",
+      "kill_chain_phases": ["resource-development"],
+      "is_subtechnique": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1583",
+          "url": "https://attack.mitre.org/techniques/T1583/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000015830001",
+      "type": "attack-pattern",
+      "name": "Domains",
+      "description": "Adathalászatra vagy parancsnoki szerverként (C2) használt internetes domain nevek regisztrálása.",
+      "external_id": "T1583.001",
+      "kill_chain_phases": ["resource-development"],
+      "is_subtechnique": true,
+      "parent_external_id": "T1583",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1583.001",
+          "url": "https://attack.mitre.org/techniques/T1583/001/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000000001566",
+      "type": "attack-pattern",
+      "name": "Phishing",
+      "description": "Adathalász üzenetek küldése a célpontok megtévesztésére, bizalmas adatok megszerzésére vagy kártékony kódok bejuttatására.",
+      "external_id": "T1566",
+      "kill_chain_phases": ["initial-access"],
+      "is_subtechnique": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1566",
+          "url": "https://attack.mitre.org/techniques/T1566/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000015660001",
+      "type": "attack-pattern",
+      "name": "Spearphishing Attachment",
+      "description": "Célzott adathalász e-mail küldése kártékony csatolmánnyal (pl. fegyverzett Office dokumentum, zip fájl).",
+      "external_id": "T1566.001",
+      "kill_chain_phases": ["initial-access"],
+      "is_subtechnique": true,
+      "parent_external_id": "T1566",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1566.001",
+          "url": "https://attack.mitre.org/techniques/T1566/001/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000015660002",
+      "type": "attack-pattern",
+      "name": "Spearphishing Link",
+      "description": "Célzott adathalász e-mail küldése kártékony weboldalra mutat hivatkozással (URL).",
+      "external_id": "T1566.002",
+      "kill_chain_phases": ["initial-access"],
+      "is_subtechnique": true,
+      "parent_external_id": "T1566",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1566.002",
+          "url": "https://attack.mitre.org/techniques/T1566/002/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000000001190",
+      "type": "attack-pattern",
+      "name": "Exploit Public-Facing Application",
+      "description": "Internet felől elérhető szoftverek, webszerverek és alkalmazások sérülékenységeinek (CVE) kihasználása behatolásra.",
+      "external_id": "T1190",
+      "kill_chain_phases": ["initial-access"],
+      "is_subtechnique": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1190",
+          "url": "https://attack.mitre.org/techniques/T1190/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000000001078",
+      "type": "attack-pattern",
+      "name": "Valid Accounts",
+      "description": "Létező, megszerzett felhasználói vagy rendszergazdai fiókok használata a jogosulatlan hozzáféréshez.",
+      "external_id": "T1078",
+      "kill_chain_phases": ["initial-access", "persistence", "privilege-escalation", "defense-evasion"],
+      "is_subtechnique": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1078",
+          "url": "https://attack.mitre.org/techniques/T1078/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000000001059",
+      "type": "attack-pattern",
+      "name": "Command and Scripting Interpreter",
+      "description": "Parancssori értelmezők és parancsfájlok használata kódok és parancsok futtatására a célrendszeren.",
+      "external_id": "T1059",
+      "kill_chain_phases": ["execution"],
+      "is_subtechnique": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1059",
+          "url": "https://attack.mitre.org/techniques/T1059/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000010590001",
+      "type": "attack-pattern",
+      "name": "PowerShell",
+      "description": "Windows PowerShell parancsok és szkriptek használata jogosultságszerzésre, felderítésre vagy kódvégrehajtásra.",
+      "external_id": "T1059.001",
+      "kill_chain_phases": ["execution"],
+      "is_subtechnique": true,
+      "parent_external_id": "T1059",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1059.001",
+          "url": "https://attack.mitre.org/techniques/T1059/001/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000010590003",
+      "type": "attack-pattern",
+      "name": "Windows Command Shell",
+      "description": "A hírhedt cmd.exe parancssor használata parancsok és kötegelt állományok (bat/cmd) végrehajtására.",
+      "external_id": "T1059.003",
+      "kill_chain_phases": ["execution"],
+      "is_subtechnique": true,
+      "parent_external_id": "T1059",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1059.003",
+          "url": "https://attack.mitre.org/techniques/T1059/003/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000000001053",
+      "type": "attack-pattern",
+      "name": "Scheduled Task/Job",
+      "description": "Időzített feladatok (Windows Task Scheduler, Linux Cron) létrehozása a kódok rendszeres, automatikus futtatására.",
+      "external_id": "T1053",
+      "kill_chain_phases": ["execution", "persistence", "privilege-escalation"],
+      "is_subtechnique": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1053",
+          "url": "https://attack.mitre.org/techniques/T1053/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000000001547",
+      "type": "attack-pattern",
+      "name": "Boot or Logon Autostart Execution",
+      "description": "A rendszer indításakor vagy a felhasználó bejelentkezésekor automatikusan lefutó kódok beállítása (pl. Registry Run kulcsok).",
+      "external_id": "T1547",
+      "kill_chain_phases": ["persistence", "privilege-escalation"],
+      "is_subtechnique": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1547",
+          "url": "https://attack.mitre.org/techniques/T1547/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000000001055",
+      "type": "attack-pattern",
+      "name": "Process Injection",
+      "description": "Kártékony kód befecskendezése létező, megbízható folyamatokba a felismerés elkerülése és a védelem kijátszása céljából.",
+      "external_id": "T1055",
+      "kill_chain_phases": ["defense-evasion", "privilege-escalation"],
+      "is_subtechnique": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1055",
+          "url": "https://attack.mitre.org/techniques/T1055/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000000001027",
+      "type": "attack-pattern",
+      "name": "Obfuscated Files or Information",
+      "description": "Fájlok, kódok vagy parancsok rejtjelezése, titkosítása és torzítása a vírusirtók (EDR/AV) kijátszására.",
+      "external_id": "T1027",
+      "kill_chain_phases": ["defense-evasion"],
+      "is_subtechnique": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1027",
+          "url": "https://attack.mitre.org/techniques/T1027/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000000001003",
+      "type": "attack-pattern",
+      "name": "OS Credential Dumping",
+      "description": "Rendszerállományokból és memóriából (pl. Windows LSASS process) elmentett jelszavak és hash-ek kinyerése.",
+      "external_id": "T1003",
+      "kill_chain_phases": ["credential-access"],
+      "is_subtechnique": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1003",
+          "url": "https://attack.mitre.org/techniques/T1003/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000010030001",
+      "type": "attack-pattern",
+      "name": "LSASS Memory",
+      "description": "A Windows Local Security Authority Subsystem Service (LSASS) memóriaterületének kiolvasása (pl. Mimikatz-el).",
+      "external_id": "T1003.001",
+      "kill_chain_phases": ["credential-access"],
+      "is_subtechnique": true,
+      "parent_external_id": "T1003",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1003.001",
+          "url": "https://attack.mitre.org/techniques/T1003/001/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000000001082",
+      "type": "attack-pattern",
+      "name": "System Information Discovery",
+      "description": "Részletes információk gyűjtése a célpont operációs rendszeréről, architektúrájáról és javítócsomagjairól.",
+      "external_id": "T1082",
+      "kill_chain_phases": ["discovery"],
+      "is_subtechnique": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1082",
+          "url": "https://attack.mitre.org/techniques/T1082/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000000001021",
+      "type": "attack-pattern",
+      "name": "Remote Services",
+      "description": "Beépített távoli felügyeleti szolgáltatások (pl. RDP, SSH, SMB) használata a belső hálózaton belüli oldalirányú terjeszkedésre.",
+      "external_id": "T1021",
+      "kill_chain_phases": ["lateral-movement"],
+      "is_subtechnique": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1021",
+          "url": "https://attack.mitre.org/techniques/T1021/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000010210001",
+      "type": "attack-pattern",
+      "name": "Remote Desktop Protocol",
+      "description": "A Windows RDP protokoll kihasználása távoli bejelentkezésre és grafikus felületen történő terjeszkedésre.",
+      "external_id": "T1021.001",
+      "kill_chain_phases": ["lateral-movement"],
+      "is_subtechnique": true,
+      "parent_external_id": "T1021",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1021.001",
+          "url": "https://attack.mitre.org/techniques/T1021/001/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000000001071",
+      "type": "attack-pattern",
+      "name": "Application Layer Protocol",
+      "description": "Standard alkalmazási rétegbeli protokollok (HTTP, HTTPS, DNS) használata a C2 parancsnoki csatorna elrejtésére.",
+      "external_id": "T1071",
+      "kill_chain_phases": ["command-and-control"],
+      "is_subtechnique": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1071",
+          "url": "https://attack.mitre.org/techniques/T1071/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000000001041",
+      "type": "attack-pattern",
+      "name": "Exfiltration Over C2 Channel",
+      "description": "Az érzékeny adatok kijuttatása a kompromittált hálózatból a már kiépített parancsnoki (C2) csatornán keresztül.",
+      "external_id": "T1041",
+      "kill_chain_phases": ["exfiltration"],
+      "is_subtechnique": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1041",
+          "url": "https://attack.mitre.org/techniques/T1041/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000000001486",
+      "type": "attack-pattern",
+      "name": "Data Encrypted for Impact",
+      "description": "Adatok és állományok tömeges titkosítása a célrendszer működésének megbénítására és zsarolásra (Ransomware).",
+      "external_id": "T1486",
+      "kill_chain_phases": ["impact"],
+      "is_subtechnique": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1486",
+          "url": "https://attack.mitre.org/techniques/T1486/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "attack-pattern--2f0d1111-0000-4000-8000-000000001490",
+      "type": "attack-pattern",
+      "name": "Inhibit System Recovery",
+      "description": "A rendszer-helyreállítási opciók, biztonsági mentések és biztonsági másolatok (pl. Windows Shadow Copies) törlése.",
+      "external_id": "T1490",
+      "kill_chain_phases": ["impact"],
+      "is_subtechnique": false,
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "T1490",
+          "url": "https://attack.mitre.org/techniques/T1490/"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    }
+  ]
+}

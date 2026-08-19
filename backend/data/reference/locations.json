@@ -1,0 +1,91 @@
+{
+  "type": "bundle",
+  "id": "bundle--locations-reference-master-v1",
+  "spec_version": "2.1",
+  "title": "STIX 2.1 Reference Locations Data",
+  "description": "Földrajzi lokációk (országok és régiók) törzsadatai a CTI elemzésekhez. A kódok megfelelnek az ISO 3166-1 alpha-2 szabványnak.",
+  "created": "2026-08-08T10:00:00.000Z",
+  "objects": [
+    {
+      "stix_id": "location--3a8f5c1d-1111-4a22-821b-000000000001",
+      "type": "location",
+      "name": "Hungary",
+      "country": "HU",
+      "region": "eastern-europe",
+      "description": "Magyarország - Elsődleges védelmi és elemzési célterület.",
+      "created": "2026-08-08T10:00:00.000Z"
+    },
+    {
+      "stix_id": "location--3a8f5c1d-2222-4a22-821b-000000000002",
+      "type": "location",
+      "name": "Russia",
+      "country": "RU",
+      "region": "eastern-europe",
+      "description": "Orosz Föderáció - Jelentős állami támogatású kiberfenyegetési forrás (pl. APT28, APT29).",
+      "created": "2026-08-08T10:00:00.000Z"
+    },
+    {
+      "stix_id": "location--3a8f5c1d-3333-4a22-821b-000000000003",
+      "type": "location",
+      "name": "China",
+      "country": "CN",
+      "region": "eastern-asia",
+      "description": "Kínai Népköztársaság - Fejlett ipari kémkedési és APT fenyegetési forrás (pl. APT41).",
+      "created": "2026-08-08T10:00:00.000Z"
+    },
+    {
+      "stix_id": "location--3a8f5c1d-4444-4a22-821b-000000000004",
+      "type": "location",
+      "name": "Ukraine",
+      "country": "UA",
+      "region": "eastern-europe",
+      "description": "Ukrajna - Kiberkonfliktusok által erősen érintett kelet-európai régió.",
+      "created": "2026-08-08T10:00:00.000Z"
+    },
+    {
+      "stix_id": "location--3a8f5c1d-5555-4a22-821b-000000000005",
+      "type": "location",
+      "name": "Iran",
+      "country": "IR",
+      "region": "southern-asia",
+      "description": "Iráni Iszlám Köztársaság - Közel-keleti állami támadócsoportok (pl. MuddyWater, Charming Kitten).",
+      "created": "2026-08-08T10:00:00.000Z"
+    },
+    {
+      "stix_id": "location--3a8f5c1d-6666-4a22-821b-000000000006",
+      "type": "location",
+      "name": "North Korea",
+      "country": "KP",
+      "region": "eastern-asia",
+      "description": "Koreai Népi Demokratikus Köztársaság - Pénzügyi és védelmi szektort célzó állami szereplők (pl. Lazarus Group).",
+      "created": "2026-08-08T10:00:00.000Z"
+    },
+    {
+      "stix_id": "location--3a8f5c1d-7777-4a22-821b-000000000007",
+      "type": "location",
+      "name": "Poland",
+      "country": "PL",
+      "region": "eastern-europe",
+      "description": "Lengyelország - Kiemelt közép-európai NATO/EU szövetséges és régiós fenyegetésmegosztási partner.",
+      "created": "2026-08-08T10:00:00.000Z"
+    },
+    {
+      "stix_id": "location--3a8f5c1d-8888-4a22-821b-000000000008",
+      "type": "location",
+      "name": "Germany",
+      "country": "DE",
+      "region": "western-europe",
+      "description": "Németország - Nyugat-európai gazdasági és kritikus infrastruktúra központ.",
+      "created": "2026-08-08T10:00:00.000Z"
+    },
+    {
+      "stix_id": "location--3a8f5c1d-9999-4a22-821b-000000000009",
+      "type": "location",
+      "name": "United States",
+      "country": "US",
+      "region": "northern-america",
+      "description": "Amerikai Egyesült Államok - Globális kiberbiztonsági elemzői infrastruktúra és partner.",
+      "created": "2026-08-08T10:00:00.000Z"
+    }
+  ]
+}

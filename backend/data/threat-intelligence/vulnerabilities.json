@@ -1,0 +1,94 @@
+{
+  "type": "bundle",
+  "id": "bundle--vulnerabilities-master-v1",
+  "spec_version": "2.1",
+  "title": "STIX 2.1 Comprehensive Vulnerabilities Data (CVE)",
+  "description": "Az európai és hazai kritikus infrastruktúrákat támadó kiberformációk által leggyakrabban kihasznált CVE sérülékenységek (STIX Vulnerability SDO).",
+  "created": "2026-08-10T10:00:00.000Z",
+  "objects": [
+    {
+      "stix_id": "vulnerability--c3a10000-1111-4000-8000-0000202323397",
+      "type": "vulnerability",
+      "name": "CVE-2023-23397",
+      "description": "Microsoft Outlook NTLM hitelesítőadat-szivárgási sérülékenység. Lehetővé teszi jelszó-hashek megszerzését egy kifejezetten formázott naptármeghívóval, felhasználói interakció nélkül (Zero-Click). Használója: APT28 (Fancy Bear) európai diplomáciai célpontok ellen.",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2023-23397",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-23397"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "vulnerability--c3a10000-1111-4000-8000-0000202144228",
+      "type": "vulnerability",
+      "name": "CVE-2021-44228 (Log4Shell)",
+      "description": "Apache Log4j2 távoli kódvégrehajtási (RCE) kritikus sérülékenység. Széles körben használták kínai APT csoportok, zsarolóvírus-terjesztők és állami szereplők az internet felől elérhető rendszerek azonnali feltörésére.",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2021-44228",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-44228"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "vulnerability--c3a10000-1111-4000-8000-0000202126855",
+      "type": "vulnerability",
+      "name": "CVE-2021-26855 (ProxyLogon)",
+      "description": "Microsoft Exchange Server távoli kódvégrehajtási sérülékenység-lánc része. Több ezer európai vállalati és kormányzati levelezőszerver kompromittálását tette lehetővé. Használója: APT41, HAFNIUM.",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2021-26855",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-26855"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "vulnerability--c3a10000-1111-4000-8000-0000201701440",
+      "type": "vulnerability",
+      "name": "CVE-2017-0144 (EternalBlue / MS17-010)",
+      "description": "Windows SMBv1 hálózati protokoll távoli kódvégrehajtási sérülékenysége. Ezt kihasználva terjedt el a WannaCry és a NotPetya féreg, globális pusztítást okozva az energetikában és az egészségügyben.",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2017-0144",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2017-0144"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "vulnerability--c3a10000-1111-4000-8000-0000202335192",
+      "type": "vulnerability",
+      "name": "CVE-2023-35192",
+      "description": "Citrix ADC és NetScaler Gateway nem hitelesített távoli kódvégrehajtási (RCE) sérülékenysége. Zsarolóvírus-csoportok és APT szereplők elsődleges belépési pontja volt vállalati hálózatokba.",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2023-35192",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-35192"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "stix_id": "vulnerability--c3a10000-1111-4000-8000-0000202006887",
+      "type": "vulnerability",
+      "name": "CVE-2020-0687 (Zerologon)",
+      "description": "Windows Netlogon protokoll kritikus jogosultságkiterjesztési sérülékenysége. Lehetővé teszi a támadónak, hogy másodpercek alatt átvegye az ellenőrzést a tartományvezérlő (Domain Controller) felett.",
+      "external_references": [
+        {
+          "source_name": "cve",
+          "external_id": "CVE-2020-1472",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-1472"
+        }
+      ],
+      "created": "2026-08-10T10:00:00.000Z"
+    }
+  ]
+}

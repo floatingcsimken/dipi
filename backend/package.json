@@ -3,17 +3,22 @@
   "version": "1.0.0",
   "main": "src/index.ts",
   "scripts": {
-    "dev": "ts-node-dev --respawn src/index.ts"
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "npx nodemon src/index.ts",
+    "seed": "ts-node src/seeders/index.ts"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.19.2",
-    "neo4j-driver": "^5.20.0"
+    "neo4j-driver": "^5.20.0",
+    "dotenv": "^16.4.5"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/node": "^20.12.0",
+    "nodemon": "^3.1.0",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.4.0"
   }

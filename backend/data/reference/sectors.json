@@ -1,0 +1,46 @@
+{
+  "type": "bundle",
+  "id": "bundle--sectors-reference-master-v1",
+  "spec_version": "2.1",
+  "title": "STIX 2.1 Reference Sectors Data",
+  "description": "Absztrakt, nemzetközi kritikus infrastruktúra szektorok és iparágak törzsadatai (STIX Identity SDO - sector class).",
+  "created": "2026-08-08T10:00:00.000Z",
+  "objects": [
+    {
+      "stix_id": "identity--b5212345-0000-4000-8000-000000000010",
+      "type": "identity",
+      "name": "Healthcare Sector",
+      "identity_class": "sector",
+      "sectors": ["healthcare"],
+      "description": "Egészségügyi szektor. Kiemelten kitett zsarolóvírus (Ransomware) támadásoknak és a betegadatok elleni adatszivárogtatásnak.",
+      "created": "2026-08-08T10:00:00.000Z"
+    },
+    {
+      "stix_id": "identity--b5212345-0000-4000-8000-000000000020",
+      "type": "identity",
+      "name": "Financial Services Sector",
+      "identity_class": "sector",
+      "sectors": ["financial-services"],
+      "description": "Pénzügyi és banki szektor. Célpontja mind állami APT csoportok kiberkémkedési, mind szervezett kiberbűnözői csoportok pénzszerző műveleteinek.",
+      "created": "2026-08-08T10:00:00.000Z"
+    },
+    {
+      "stix_id": "identity--b5212345-0000-4000-8000-000000000030",
+      "type": "identity",
+      "name": "Government Sector",
+      "identity_class": "sector",
+      "sectors": ["government"],
+      "description": "Kormányzati és közigazgatási szektor. Elsődleges célpontja a nemzetállami APT csoportok geopolitikai indíttatású kiberkémkedési akcióinak.",
+      "created": "2026-08-08T10:00:00.000Z"
+    },
+    {
+      "stix_id": "identity--b5212345-0000-4000-8000-000000000040",
+      "type": "identity",
+      "name": "Energy Sector",
+      "identity_class": "sector",
+      "sectors": ["energy"],
+      "description": "Energetikai szektor és kritikus infrastruktúra. Kiemelt célpontja az ipari irányítórendszereket (ICS/SCADA) támadó destruktív akcióknak.",
+      "created": "2026-08-08T10:00:00.000Z"
+    }
+  ]
+}

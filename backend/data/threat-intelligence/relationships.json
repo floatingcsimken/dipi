@@ -1,0 +1,466 @@
+{
+  "type": "bundle",
+  "id": "bundle--relationships-master-v2",
+  "spec_version": "2.1",
+  "title": "STIX 2.1 Complete Master Relationships Data",
+  "description": "Teljes kapcsolati háló, amely mind a 113 törzsadat-csomópontot (APT-ket, Kártevőket, CVE-ket, IoC-kat, Védelmeket, Szervezeteket és Lokációkat) összeköti a gráfban.",
+  "created": "2026-08-10T10:00:00.000Z",
+  "objects": [
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000001",
+      "type": "relationship",
+      "relationship_type": "located-at",
+      "source_ref": "identity--b5212345-1111-4000-8000-000000000011",
+      "target_ref": "location--3a8f5c1d-1111-4a22-821b-000000000001",
+      "description": "Országos Korányi Intézet -> Hungary"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000002",
+      "type": "relationship",
+      "relationship_type": "part-of",
+      "source_ref": "identity--b5212345-1111-4000-8000-000000000011",
+      "target_ref": "identity--b5212345-0000-4000-8000-000000000010",
+      "description": "Országos Korányi Intézet -> Healthcare Sector"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000003",
+      "type": "relationship",
+      "relationship_type": "located-at",
+      "source_ref": "identity--b5212345-1111-4000-8000-000000000012",
+      "target_ref": "location--3a8f5c1d-1111-4a22-821b-000000000001",
+      "description": "Semmelweis Egyetem -> Hungary"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000004",
+      "type": "relationship",
+      "relationship_type": "part-of",
+      "source_ref": "identity--b5212345-1111-4000-8000-000000000012",
+      "target_ref": "identity--b5212345-0000-4000-8000-000000000010",
+      "description": "Semmelweis Egyetem -> Healthcare Sector"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000005",
+      "type": "relationship",
+      "relationship_type": "located-at",
+      "source_ref": "identity--b5212345-1111-4000-8000-000000000021",
+      "target_ref": "location--3a8f5c1d-1111-4a22-821b-000000000001",
+      "description": "OTP Bank -> Hungary"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000006",
+      "type": "relationship",
+      "relationship_type": "part-of",
+      "source_ref": "identity--b5212345-1111-4000-8000-000000000021",
+      "target_ref": "identity--b5212345-0000-4000-8000-000000000020",
+      "description": "OTP Bank -> Financial Services Sector"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000007",
+      "type": "relationship",
+      "relationship_type": "located-at",
+      "source_ref": "identity--b5212345-1111-4000-8000-000000000022",
+      "target_ref": "location--3a8f5c1d-1111-4a22-821b-000000000001",
+      "description": "Magyar Nemzeti Bank -> Hungary"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000008",
+      "type": "relationship",
+      "relationship_type": "part-of",
+      "source_ref": "identity--b5212345-1111-4000-8000-000000000022",
+      "target_ref": "identity--b5212345-0000-4000-8000-000000000020",
+      "description": "Magyar Nemzeti Bank -> Financial Services Sector"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000009",
+      "type": "relationship",
+      "relationship_type": "located-at",
+      "source_ref": "identity--b5212345-1111-4000-8000-000000000031",
+      "target_ref": "location--3a8f5c1d-1111-4a22-821b-000000000001",
+      "description": "NKI -> Hungary"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000010",
+      "type": "relationship",
+      "relationship_type": "part-of",
+      "source_ref": "identity--b5212345-1111-4000-8000-000000000031",
+      "target_ref": "identity--b5212345-0000-4000-8000-000000000030",
+      "description": "NKI -> Government Sector"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000011",
+      "type": "relationship",
+      "relationship_type": "located-at",
+      "source_ref": "identity--b5212345-1111-4000-8000-000000000041",
+      "target_ref": "location--3a8f5c1d-1111-4a22-821b-000000000001",
+      "description": "MVM Csoport -> Hungary"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000012",
+      "type": "relationship",
+      "relationship_type": "part-of",
+      "source_ref": "identity--b5212345-1111-4000-8000-000000000041",
+      "target_ref": "identity--b5212345-0000-4000-8000-000000000040",
+      "description": "MVM Csoport -> Energy Sector"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000013",
+      "type": "relationship",
+      "relationship_type": "located-at",
+      "source_ref": "identity--b5212345-2222-4000-8000-000000000011",
+      "target_ref": "location--3a8f5c1d-8888-4a22-821b-000000000008",
+      "description": "Charité Berlin -> Germany"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000014",
+      "type": "relationship",
+      "relationship_type": "part-of",
+      "source_ref": "identity--b5212345-2222-4000-8000-000000000011",
+      "target_ref": "identity--b5212345-0000-4000-8000-000000000010",
+      "description": "Charité Berlin -> Healthcare Sector"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000015",
+      "type": "relationship",
+      "relationship_type": "located-at",
+      "source_ref": "identity--b5212345-2222-4000-8000-000000000021",
+      "target_ref": "location--3a8f5c1d-8888-4a22-821b-000000000008",
+      "description": "European Central Bank -> Germany"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000016",
+      "type": "relationship",
+      "relationship_type": "part-of",
+      "source_ref": "identity--b5212345-2222-4000-8000-000000000021",
+      "target_ref": "identity--b5212345-0000-4000-8000-000000000020",
+      "description": "European Central Bank -> Financial Services Sector"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000017",
+      "type": "relationship",
+      "relationship_type": "targets",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000099",
+      "target_ref": "location--3a8f5c1d-1111-4a22-821b-000000000001",
+      "description": "APT29 -> Hungary"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000018",
+      "type": "relationship",
+      "relationship_type": "targets",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000099",
+      "target_ref": "identity--b5212345-1111-4000-8000-000000000031",
+      "description": "APT29 -> NKI"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000019",
+      "type": "relationship",
+      "relationship_type": "uses",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000099",
+      "target_ref": "malware--d28f0000-1234-4000-8000-000000000008",
+      "description": "APT29 -> MiniDuke"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000020",
+      "type": "relationship",
+      "relationship_type": "targets",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000028",
+      "target_ref": "location--3a8f5c1d-1111-4a22-821b-000000000001",
+      "description": "APT28 -> Hungary"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000021",
+      "type": "relationship",
+      "relationship_type": "uses",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000028",
+      "target_ref": "malware--d28f0000-1234-4000-8000-000000000009",
+      "description": "APT28 -> X-Agent"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000022",
+      "type": "relationship",
+      "relationship_type": "uses",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000028",
+      "target_ref": "vulnerability--c3a10000-1111-4000-8000-0000202323397",
+      "description": "APT28 exploits CVE-2023-23397"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000023",
+      "type": "relationship",
+      "relationship_type": "uses",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000028",
+      "target_ref": "attack-pattern--2f0d1111-0000-4000-8000-000015660001",
+      "description": "APT28 uses Spearphishing Attachment"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000024",
+      "type": "relationship",
+      "relationship_type": "targets",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000044",
+      "target_ref": "identity--b5212345-0000-4000-8000-000000000040",
+      "description": "Sandworm Team -> Energy Sector"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000025",
+      "type": "relationship",
+      "relationship_type": "uses",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000044",
+      "target_ref": "malware--d28f0000-1234-4000-8000-000000000002",
+      "description": "Sandworm Team -> NotPetya"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000026",
+      "type": "relationship",
+      "relationship_type": "uses",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000044",
+      "target_ref": "malware--d28f0000-1234-4000-8000-000000000010",
+      "description": "Sandworm Team -> Industroyer"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000027",
+      "type": "relationship",
+      "relationship_type": "uses",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000012",
+      "target_ref": "malware--d28f0000-1234-4000-8000-000000000004",
+      "description": "Turla -> Snake / Uroburos"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000028",
+      "type": "relationship",
+      "relationship_type": "uses",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000013",
+      "target_ref": "malware--d28f0000-1234-4000-8000-000000000011",
+      "description": "Gamaredon -> Pterodo"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000029",
+      "type": "relationship",
+      "relationship_type": "targets",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000013",
+      "target_ref": "location--3a8f5c1d-4444-4a22-821b-000000000004",
+      "description": "Gamaredon -> Ukraine"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000030",
+      "type": "relationship",
+      "relationship_type": "uses",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000014",
+      "target_ref": "malware--d28f0000-1234-4000-8000-000000000007",
+      "description": "Cadet Blizzard -> HermeticWiper"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000031",
+      "type": "relationship",
+      "relationship_type": "uses",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000041",
+      "target_ref": "malware--d28f0000-1234-4000-8000-000000000012",
+      "description": "APT41 -> ShadowPad"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000032",
+      "type": "relationship",
+      "relationship_type": "uses",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000041",
+      "target_ref": "vulnerability--c3a10000-1111-4000-8000-0000202126855",
+      "description": "APT41 exploits ProxyLogon"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000033",
+      "type": "relationship",
+      "relationship_type": "uses",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000032",
+      "target_ref": "malware--d28f0000-1234-4000-8000-000000000005",
+      "description": "Mustang Panda -> PlugX"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000034",
+      "type": "relationship",
+      "relationship_type": "uses",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000032",
+      "target_ref": "malware--d28f0000-1234-4000-8000-000000000013",
+      "description": "Mustang Panda -> M2Rat"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000035",
+      "type": "relationship",
+      "relationship_type": "targets",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000032",
+      "target_ref": "identity--b5212345-2222-4000-8000-000000000031",
+      "description": "Mustang Panda -> European Commission"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000036",
+      "type": "relationship",
+      "relationship_type": "uses",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000077",
+      "target_ref": "malware--d28f0000-1234-4000-8000-000000000014",
+      "description": "Lazarus Group -> WannaCry"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000037",
+      "type": "relationship",
+      "relationship_type": "targets",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000077",
+      "target_ref": "identity--b5212345-0000-4000-8000-000000000020",
+      "description": "Lazarus Group -> Financial Services Sector"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000038",
+      "type": "relationship",
+      "relationship_type": "uses",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000051",
+      "target_ref": "malware--d28f0000-1234-4000-8000-000000000015",
+      "description": "MuddyWater -> POWERSTAR"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000039",
+      "type": "relationship",
+      "relationship_type": "uses",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000007",
+      "target_ref": "malware--d28f0000-1234-4000-8000-000000000016",
+      "description": "FIN7 -> Carbanak"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000040",
+      "type": "relationship",
+      "relationship_type": "targets",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000007",
+      "target_ref": "identity--b5212345-1111-4000-8000-000000000021",
+      "description": "FIN7 -> OTP Bank"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000041",
+      "type": "relationship",
+      "relationship_type": "uses",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000088",
+      "target_ref": "malware--d28f0000-1234-4000-8000-000000000001",
+      "description": "LockBit Gang -> LockBit"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000042",
+      "type": "relationship",
+      "relationship_type": "targets",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000088",
+      "target_ref": "identity--b5212345-1111-4000-8000-000000000011",
+      "description": "LockBit Gang -> Korányi Intézet"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000043",
+      "type": "relationship",
+      "relationship_type": "uses",
+      "source_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000089",
+      "target_ref": "malware--d28f0000-1234-4000-8000-000000000017",
+      "description": "ALPHV -> BlackCat"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000044",
+      "type": "relationship",
+      "relationship_type": "exploits",
+      "source_ref": "malware--d28f0000-1234-4000-8000-000000000014",
+      "target_ref": "vulnerability--c3a10000-1111-4000-8000-0000201701440",
+      "description": "WannaCry exploits EternalBlue (MS17-010)"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000045",
+      "type": "relationship",
+      "relationship_type": "exploits",
+      "source_ref": "malware--d28f0000-1234-4000-8000-000000000002",
+      "target_ref": "vulnerability--c3a10000-1111-4000-8000-0000201701440",
+      "description": "NotPetya exploits EternalBlue (MS17-010)"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000046",
+      "type": "relationship",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--e4b10000-1111-4000-8000-000000000001",
+      "target_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000028",
+      "description": "Phishing Domain -> APT28"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000047",
+      "type": "relationship",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--e4b10000-1111-4000-8000-000000000002",
+      "target_ref": "malware--d28f0000-1234-4000-8000-000000000003",
+      "description": "Cobalt Strike IP -> Cobalt Strike Beacon"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000048",
+      "type": "relationship",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--e4b10000-1111-4000-8000-000000000003",
+      "target_ref": "malware--d28f0000-1234-4000-8000-000000000002",
+      "description": "NotPetya Hash -> NotPetya"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000049",
+      "type": "relationship",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--e4b10000-1111-4000-8000-000000000004",
+      "target_ref": "threat-actor--7c9a1234-9999-4000-8000-000000000099",
+      "description": "KKM C2 IP -> APT29"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000050",
+      "type": "relationship",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--e4b10000-1111-4000-8000-000000000008",
+      "target_ref": "malware--d28f0000-1234-4000-8000-000000000014",
+      "description": "WannaCry Hash -> WannaCry"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000051",
+      "type": "relationship",
+      "relationship_type": "indicates",
+      "source_ref": "indicator--e4b10000-1111-4000-8000-000000000014",
+      "target_ref": "malware--d28f0000-1234-4000-8000-000000000006",
+      "description": "Mimikatz Hash -> Mimikatz"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000052",
+      "type": "relationship",
+      "relationship_type": "mitigates",
+      "source_ref": "course-of-action--f5c10000-1111-4000-8000-000000000001",
+      "target_ref": "vulnerability--c3a10000-1111-4000-8000-0000202323397",
+      "description": "Outlook NTLM Mitigáció -> CVE-2023-23397"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000053",
+      "type": "relationship",
+      "relationship_type": "mitigates",
+      "source_ref": "course-of-action--f5c10000-1111-4000-8000-000000000003",
+      "target_ref": "vulnerability--c3a10000-1111-4000-8000-0000202144228",
+      "description": "Log4j2 Patch -> Log4Shell"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000054",
+      "type": "relationship",
+      "relationship_type": "mitigates",
+      "source_ref": "course-of-action--f5c10000-1111-4000-8000-000000000004",
+      "target_ref": "malware--d28f0000-1234-4000-8000-000000000001",
+      "description": "Air-Gapped Mentések -> LockBit"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000055",
+      "type": "relationship",
+      "relationship_type": "mitigates",
+      "source_ref": "course-of-action--f5c10000-1111-4000-8000-000000000006",
+      "target_ref": "malware--d28f0000-1234-4000-8000-000000000006",
+      "description": "LSASS Protection -> Mimikatz"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000056",
+      "type": "relationship",
+      "relationship_type": "mitigates",
+      "source_ref": "course-of-action--f5c10000-1111-4000-8000-000000000009",
+      "target_ref": "vulnerability--c3a10000-1111-4000-8000-0000202335192",
+      "description": "Citrix Patch -> CVE-2023-35192"
+    },
+    {
+      "stix_id": "relationship--90000000-0000-4000-8000-000000000057",
+      "type": "relationship",
+      "relationship_type": "mitigates",
+      "source_ref": "course-of-action--f5c10000-1111-4000-8000-000000000011",
+      "target_ref": "vulnerability--c3a10000-1111-4000-8000-0000201701440",
+      "description": "SMBv1 Kivezetés -> EternalBlue"
+    }
+  ]
+}
