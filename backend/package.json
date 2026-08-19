@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
     "express": "^4.19.2",
-    "neo4j-driver": "^5.20.0",
-    "dotenv": "^16.4.5"
+    "neo4j-driver": "^5.20.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
