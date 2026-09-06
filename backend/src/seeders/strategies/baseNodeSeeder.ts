@@ -9,17 +9,24 @@ export class BaseNodeSeeder {
   protected label: string;
   protected filePath: string;
   protected displayName: string;
+  protected stixType?: string | string[];
 
-  constructor(driver: Driver, label: string, filePath: string, displayName: string) {
+  constructor(driver: Driver, label: string, filePath: string, displayName: string, stixType?: string | string[]) {
     this.driver = driver;
     this.writer = new Neo4jBatchWriter(driver);
     this.label = label;
     this.filePath = filePath;
     this.displayName = displayName;
+    this.stixType = stixType;
   }
 
   public async seed(): Promise<void> {
-    const items = JsonLoader.loadObjects<StixSDO>(this.filePath);
+    let items: StixSDO[] = [];
+    if (this.stixType) {
+      items = JsonLoader.loadStixObjects<StixSDO>(this.filePath, this.stixType);
+    } else {
+      items = JsonLoader.loadBundleObjects(this.filePath);
+    }
     if (items.length === 0) return;
 
     console.log(`⏳ [Seeding] ${this.displayName} (${items.length} elem)...`);

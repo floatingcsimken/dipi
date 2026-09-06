@@ -1,6 +1,6 @@
 import { Driver } from 'neo4j-driver';
-import { BaseNodeSeeder } from './baseNodeSeeder';
-import { DATA_PATHS } from '../../config/paths';
+import { BaseNodeSeeder } from '../baseNodeSeeder';
+import { DATA_PATHS } from '../../../config/paths';
 
 export class AttackPatternSeeder extends BaseNodeSeeder {
   constructor(driver: Driver) {

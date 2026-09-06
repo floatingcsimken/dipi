@@ -1,7 +1,7 @@
 import { Driver } from 'neo4j-driver';
-import { JsonLoader } from '../core/jsonLoader';
-import { DATA_PATHS } from '../../config/paths';
-import { StixSRO } from '../../types/stix/stixTypes';
+import { JsonLoader } from '../../core/jsonLoader';
+import { DATA_PATHS } from '../../../config/paths';
+import { StixSRO } from '../../../types/stix/stixTypes';
 
 export class RelationshipSeeder {
   private driver: Driver;
@@ -11,7 +11,7 @@ export class RelationshipSeeder {
   }
 
   public async seed(): Promise<void> {
-    const relationships = JsonLoader.loadObjects<StixSRO>(DATA_PATHS.THREATS.RELATIONSHIPS);
+    const relationships = JsonLoader.loadStixObjects<StixSRO>(DATA_PATHS.THREATS.RELATIONSHIPS, 'relationship');
     if (relationships.length === 0) return;
 
     console.log(`⏳ [Seeding] STIX Relationships (${relationships.length} kapcsolat)...`);

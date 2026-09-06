@@ -3,8 +3,6 @@ import { getDriver, closeDriver } from '../config/database';
 import { DATA_PATHS } from '../config/paths';
 import { BaseNodeSeeder } from './strategies/baseNodeSeeder';
 import { OrganizationSeeder } from './strategies/custom/organizationSeeder';
-import { AttackPatternSeeder } from './strategies/attackPatternSeeder';
-import { RelationshipSeeder } from './strategies/relationshipSeeder';
 
 dotenv.config();
 
@@ -18,17 +16,7 @@ async function runSeed() {
     new BaseNodeSeeder(driver, 'Location', DATA_PATHS.REFERENCE.LOCATIONS, 'Locations'),
     new BaseNodeSeeder(driver, 'Identity', DATA_PATHS.REFERENCE.SECTORS, 'Sectors'),
     new OrganizationSeeder(driver),
-    new AttackPatternSeeder(driver),
 
-    // Fenyegetési adatok
-    new BaseNodeSeeder(driver, 'ThreatActor', DATA_PATHS.THREATS.THREAT_ACTORS, 'Threat Actors'),
-    new BaseNodeSeeder(driver, 'Malware', DATA_PATHS.THREATS.MALWARE, 'Malware & Tools'),
-    new BaseNodeSeeder(driver, 'Vulnerability', DATA_PATHS.THREATS.VULNERABILITIES, 'Vulnerabilities (CVE)'),
-    new BaseNodeSeeder(driver, 'Indicator', DATA_PATHS.THREATS.INDICATORS, 'Indicators (IoC)'),
-    new BaseNodeSeeder(driver, 'CourseOfAction', DATA_PATHS.THREATS.COURSES_OF_ACTION, 'Courses of Action'),
-
-    // STIX Relációk
-    new RelationshipSeeder(driver),
   ];
 
   try {
