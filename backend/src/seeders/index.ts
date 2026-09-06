@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import { getDriver, closeDriver } from '../config/database';
 import { DATA_PATHS } from '../config/paths';
 import { BaseNodeSeeder } from './strategies/baseNodeSeeder';
-import { OrganizationSeeder } from './strategies/organizationSeeder';
+import { OrganizationSeeder } from './strategies/custom/organizationSeeder';
 import { AttackPatternSeeder } from './strategies/attackPatternSeeder';
 import { RelationshipSeeder } from './strategies/relationshipSeeder';
 

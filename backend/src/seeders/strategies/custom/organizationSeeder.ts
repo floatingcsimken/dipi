@@ -1,6 +1,6 @@
 import { Driver } from 'neo4j-driver';
-import { BaseNodeSeeder } from './baseNodeSeeder';
-import { DATA_PATHS } from '../../config/paths';
+import { BaseNodeSeeder } from '../baseNodeSeeder';
+import { DATA_PATHS } from '../../../config/paths';
 
 // 1. Organization Seeder: csomópontok + szektorhoz kapcsolás
 export class OrganizationSeeder extends BaseNodeSeeder {

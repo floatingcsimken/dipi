@@ -56,3 +56,5 @@ Thumbs.db
 # ==========================================
 # Ha esetleg a helyi Neo4j adatbázis adatait a projekten belülre mentenéd
 neo4j_data/
+
+data/enterprise-attack.json
