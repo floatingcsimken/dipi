@@ -1,45 +1,61 @@
 /**
  * @file ObserveSection.tsx
- * @description 1. Observe fázis: Incidens bemeneti paraméterek beküldése.
+ * @description Az OODA-ciklus 1. fázisa (Observe): Az incidens megfigyelt paramétereinek kiválasztása.
  */
 
-import { useState, useCallback, type FormEvent, type JSX } from 'react';
+import { useState, useCallback, type FormEvent } from 'react';
 import { Crosshair, AlertCircle } from 'lucide-react';
 import { Card } from '../common/Card';
 import { Button } from '../common/Button';
+import { useMetadata } from '../../hooks/useMetadata';
 import type { AnalysisRequestDTO } from '../../types/api';
+import type { JSX } from 'react/jsx-runtime';
 
+
+/**
+ * Az ObserveSection komponens bemeneti tulajdonságai.
+ */
 export interface ObserveSectionProps {
   isLoading: boolean;
   errorMessage: string | null;
   onSubmit: (payload: AnalysisRequestDTO) => Promise<void>;
 }
 
+/**
+ * Űrlap-komponens, amely lehetővé teszi a felhasználó számára a célpont szektor
+ * és az észlelt kártevők kiválasztását a gráfadatbázisból származó opciók alapján.
+ *
+ * @param {ObserveSectionProps} props - A komponens tulajdonságai.
+ * @returns {JSX.Element} A kirajzolt űrlap kártya.
+ */
 export function ObserveSection({
   isLoading,
   errorMessage,
   onSubmit,
 }: ObserveSectionProps): JSX.Element {
-  const [targetSector, setTargetSector] = useState<string>('financial-services');
-  const [malwareInput, setMalwareInput] = useState<string>('Carbanak');
+  const { metadata, isLoading: isMetadataLoading } = useMetadata();
+  const [selectedSector, setSelectedSector] = useState<string>('');
+  const [selectedMalware, setSelectedMalware] = useState<string>('');
 
+  // Származtatott tényleges értékek (ha még nem választott manuálisan, az 1. elemet vesszük alapértelmezettnek)
+  const activeSector = selectedSector || (metadata?.sectors[0] ?? '');
+  const activeMalware = selectedMalware || (metadata?.malware[0] ?? '');
+
+  /**
+   * Kezeli az űrlap beküldését és összeállítja az AnalysisRequestDTO objektumot.
+   */
   const handleSubmit = useCallback(
     async (event: FormEvent<HTMLFormElement>): Promise<void> => {
       event.preventDefault();
 
-      const parsedMalware = malwareInput
-        .split(',')
-        .map((item) => item.trim())
-        .filter(Boolean);
-
       const payload: AnalysisRequestDTO = {
-        targetSector: targetSector.trim() || undefined,
-        observedMalwareNames: parsedMalware.length > 0 ? parsedMalware : undefined,
+        targetSector: activeSector.trim() || undefined,
+        observedMalwareNames: activeMalware ? [activeMalware] : undefined,
       };
 
       await onSubmit(payload);
     },
-    [targetSector, malwareInput, onSubmit]
+    [activeSector, activeMalware, onSubmit]
   );
 
   return (
@@ -54,30 +70,46 @@ export function ObserveSection({
           <label htmlFor="targetSector" className="block text-xs font-medium text-slate-300 mb-1.5">
             Célpont Ágazat / Szektor
           </label>
-          <input
+          <select
             id="targetSector"
-            type="text"
-            value={targetSector}
-            onChange={(e) => setTargetSector(e.target.value)}
-            disabled={isLoading}
+            value={activeSector}
+            onChange={(e) => setSelectedSector(e.target.value)}
+            disabled={isLoading || isMetadataLoading}
             className="w-full bg-slate-950/80 border border-slate-800 rounded-lg px-3.5 py-2.5 text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 transition disabled:opacity-50"
-            placeholder="pl. financial-services"
-          />
+          >
+            {isMetadataLoading ? (
+              <option value="">Szektorok betöltése...</option>
+            ) : (
+              metadata?.sectors.map((sec) => (
+                <option key={sec} value={sec}>
+                  {sec}
+                </option>
+              ))
+            )}
+          </select>
         </div>
 
         <div>
           <label htmlFor="observedMalware" className="block text-xs font-medium text-slate-300 mb-1.5">
-            Észlelt Kártevők (vesszővel elválasztva)
+            Észlelt Kártevő
           </label>
-          <input
+          <select
             id="observedMalware"
-            type="text"
-            value={malwareInput}
-            onChange={(e) => setMalwareInput(e.target.value)}
-            disabled={isLoading}
+            value={activeMalware}
+            onChange={(e) => setSelectedMalware(e.target.value)}
+            disabled={isLoading || isMetadataLoading}
             className="w-full bg-slate-950/80 border border-slate-800 rounded-lg px-3.5 py-2.5 text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 transition disabled:opacity-50"
-            placeholder="pl. Carbanak, Cobalt Strike"
-          />
+          >
+            {isMetadataLoading ? (
+              <option value="">Kártevők betöltése...</option>
+            ) : (
+              metadata?.malware.map((mal) => (
+                <option key={mal} value={mal}>
+                  {mal}
+                </option>
+              ))
+            )}
+          </select>
         </div>
 
         <Button type="submit" isLoading={isLoading} loadingText="Incidens Elemzése...">

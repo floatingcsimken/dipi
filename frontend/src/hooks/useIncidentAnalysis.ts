@@ -4,7 +4,7 @@
  */
 
 import { useState, useCallback } from 'react';
-import { executeIncidentAnalysis } from '../api/analysisApi';
+import { executeIncidentAnalysis } from '../api/analysis';
 import type { AnalysisRequestDTO, AnalysisResponseDTO } from '../types/api';
 
 export interface UseIncidentAnalysisReturn {

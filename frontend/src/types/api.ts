@@ -24,3 +24,20 @@ export interface AnalysisResponseDTO {
   attributionRanking: ThreatActorMatch[];
   predictedNextSteps: PredictedStep[];
 }
+
+/**
+ * A MITRE ATT&CK technikák metaadat reprezentációja.
+ */
+export interface TechniqueMetadata {
+  id: string;
+  name: string;
+}
+
+/**
+ * A metaadat végpont (`/api/metadata`) által visszaadott aggregált válasz struktúrája.
+ */
+export interface MetadataResponseDTO {
+  sectors: string[];
+  malware: string[];
+  techniques: TechniqueMetadata[];
+}

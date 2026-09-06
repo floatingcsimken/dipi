@@ -1,5 +1,5 @@
 /**
- * @file analysisApi.ts
+ * @file analysis.ts
  * @description Az incidenselemzéshez tartozó specifikus végpont-hívások.
  */
 

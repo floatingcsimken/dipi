@@ -5,11 +5,13 @@
 
 import express, { Application, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
-import { Driver } from 'neo4j-driver';
 import { createAnalysisRouter } from './routes/analysis';
+import { metadataRouter } from './routes/metadata';
+import { getDriver } from './config/database';
 
-export function createApp(driver: Driver): Application {
+export function createApp(): Application {
   const app = express();
+  const driver = getDriver();
 
   // Globális middleware-ek
   app.use(cors());
@@ -31,6 +33,10 @@ export function createApp(driver: Driver): Application {
       details: err.message 
     });
   });
+
+
+  app.use('/api/metadata', metadataRouter);
+
 
   return app;
 }
