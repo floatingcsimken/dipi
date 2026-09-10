@@ -3,6 +3,7 @@ import { getDriver, closeDriver } from '../config/database';
 import { DATA_PATHS } from '../config/paths';
 import { BaseNodeSeeder } from './strategies/baseNodeSeeder';
 import { OrganizationSeeder } from './strategies/custom/organizationSeeder';
+import { Neo4jSchemaInitializer } from '../config/schema'; 
 
 dotenv.config();
 
@@ -10,7 +11,11 @@ async function runSeed() {
   console.log('🚀 [CTI Seeder] Adatbázis inicializálása...\n');
   const driver = getDriver();
 
-  // 1. Definiáljuk a betöltési sorrendet
+  // 1. Indexek és kényszerek létrehozása/ellenőrzése
+  const schemaInitializer = new Neo4jSchemaInitializer(driver);
+  await schemaInitializer.initializeSchema();
+
+  // 2. Definiáljuk a betöltési sorrendet
   const seeders = [
     // Referencia adatok
     new BaseNodeSeeder(driver, 'Location', DATA_PATHS.REFERENCE.LOCATIONS, 'Locations'),
