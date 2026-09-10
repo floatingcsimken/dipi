@@ -21,6 +21,34 @@ async function runSeed() {
     new BaseNodeSeeder(driver, 'Location', DATA_PATHS.REFERENCE.LOCATIONS, 'Locations'),
     new BaseNodeSeeder(driver, 'Identity', DATA_PATHS.REFERENCE.SECTORS, 'Sectors'),
     new OrganizationSeeder(driver),
+    new BaseNodeSeeder(
+        driver,
+        'AttackPattern',
+        DATA_PATHS.MITRE.ENTERPRISE_ATTACK,
+        'MITRE Attack Patterns (Techniques)',
+        'attack-pattern'
+      ),
+      new BaseNodeSeeder(
+        driver,
+        'ThreatActor',
+        DATA_PATHS.MITRE.ENTERPRISE_ATTACK,
+        'MITRE Threat Actors (Intrusion Sets)',
+        'intrusion-set'
+      ),
+      new BaseNodeSeeder(
+        driver,
+        'Software',
+        DATA_PATHS.MITRE.ENTERPRISE_ATTACK,
+        'MITRE Software (Malware & Tools)',
+        ['malware', 'tool']
+      ),
+      new BaseNodeSeeder(
+        driver,
+        'CourseOfAction',
+        DATA_PATHS.MITRE.ENTERPRISE_ATTACK,
+        'MITRE Mitigations (Courses of Action)',
+        'course-of-action'
+      )
 
   ];
 

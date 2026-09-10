@@ -25,4 +25,7 @@ export const DATA_PATHS = {
     SECTORS: path.join(DATA_ROOT_DIR, SUBDIRS.REFERENCE, FILE_NAMES.SECTORS),
     ORGANIZATIONS: path.join(DATA_ROOT_DIR, SUBDIRS.REFERENCE, FILE_NAMES.ORGANIZATIONS),
   },
+  MITRE: {
+    ENTERPRISE_ATTACK: path.join(DATA_ROOT_DIR, 'mitre/enterprise-attack.json'),
+  },
 } as const;
