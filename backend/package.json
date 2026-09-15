@@ -9,7 +9,9 @@
     "seed": "ts-node src/seeders/index.ts",
     "seed:all": "ts-node src/seeders/index.ts --all",
     "seed:custom": "ts-node src/seeders/index.ts --custom",
-    "seed:mitre": "ts-node src/seeders/index.ts --mitre"
+    "seed:mitre": "ts-node src/seeders/index.ts --mitre",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "cors": "^2.8.5",
