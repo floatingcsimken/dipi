@@ -94,4 +94,55 @@ export class Neo4jBatchWriter {
       }
     }
   }
+
+  /**
+   * STIX kapcsolatok kötegelt mentése a forrás és cél stixId alapján.
+   */
+  public async mergeRelationships(relationships: Record<string, any>[]): Promise<void> {
+    if (relationships.length === 0) return;
+
+    // 1. Csak a teljes kapcsolatokat tartjuk meg
+    const validRels = relationships.filter(
+      (rel) => rel.source_ref && rel.target_ref && rel.relationship_type
+    );
+
+    // 2. Csoportosítás relationship_type szerint (hogy tiszta Neo4j éltípusok legyenek: :USES, :MITIGATES, stb.)
+    const groupedByType: Record<string, any[]> = {};
+    for (const rel of validRels) {
+      const relType = rel.relationship_type.toUpperCase().replace(/-/g, '_');
+      if (!groupedByType[relType]) {
+        groupedByType[relType] = [];
+      }
+      groupedByType[relType].push({
+        stixId: rel.id,
+        source_ref: rel.source_ref,
+        target_ref: rel.target_ref,
+        description: rel.description || null,
+      });
+    }
+
+    // 3. Írás típusonként, kötegelve
+    for (const [type, rels] of Object.entries(groupedByType)) {
+      const query = `
+        UNWIND $batch AS rel
+        MATCH (src) WHERE src.stixId = rel.source_ref
+        MATCH (tgt) WHERE tgt.stixId = rel.target_ref
+        MERGE (src)-[r:${type}]->(tgt)
+        ON CREATE SET 
+          r.stixId = rel.stixId,
+          r.description = rel.description,
+          r.created_at = timestamp()
+      `;
+
+      for (let i = 0; i < rels.length; i += this.batchSize) {
+        const chunk = rels.slice(i, i + this.batchSize);
+        const session = this.driver.session();
+        try {
+          await session.run(query, { batch: chunk });
+        } finally {
+          await session.close();
+        }
+      }
+    }
+  }
 }
