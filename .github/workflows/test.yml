@@ -1,0 +1,35 @@
+name: Backend CI (Tests)
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./backend # Ha a gyökérben van a package.json, ezt a 2 sort töröld ki!
+
+    steps:
+      - name: Kód letöltése (Checkout)
+        uses: actions/checkout@v4
+
+      - name: Node.js környezet beállítása
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: './backend/package-lock.json' # Almappa esetén szükséges
+
+      - name: Függőségek tiszta telepítése
+        run: npm ci
+
+      - name: TypeScript típusellenőrzés
+        run: npx tsc --noEmit
+
+      - name: Vitest tesztek futtatása
+        run: npx vitest run
