@@ -1,29 +1,17 @@
-/**
- * @file metadata.ts
- * @description Üzleti logika a metaadatok párhuzamos lekérésére és aggregálására.
- */
-
-import type { MetadataRepository, TechniqueMetadata } from '../repositories/metadata';
-
-export interface AllMetadataResponse {
-  sectors: string[];
-  malware: string[];
-  techniques: TechniqueMetadata[];
-}
+import { MetadataRepository } from '../repositories/metadata';
+import type { MetadataDto } from '../types/dtos/metadata';
 
 export class MetadataService {
-  constructor(private readonly repository: MetadataRepository) {}
+  constructor(private repository: MetadataRepository) {}
 
-  /**
-   * Lekéri az összes elérhető szektort, kártevőt és technikát egyetlen aggregált válaszban.
-   */
-  async getAllMetadata(): Promise<AllMetadataResponse> {
-    const [sectors, malware, techniques] = await Promise.all([
-      this.repository.getAvailableSectors(),
-      this.repository.getAvailableMalware(),
-      this.repository.getAvailableTechniques(),
-    ]);
+  public async getMetadata(): Promise<MetadataDto> {
+    const data = await this.repository.getAgentMetadata();
 
-    return { sectors, malware, techniques };
+    return {
+      platforms: data.platforms.sort(),
+      sectors: data.sectors.sort(),
+      software: data.software.sort(),
+      techniques: data.techniques.sort((a, b) => a.name.localeCompare(b.name)),
+    };
   }
 }

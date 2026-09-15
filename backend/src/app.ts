@@ -5,9 +5,9 @@
 
 import express, { Application, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
-import { createAnalysisRouter } from './routes/analysis';
 import { metadataRouter } from './routes/metadata';
 import { getDriver } from './config/database';
+import retrievalRoutes from './routes/retrieval';
 
 export function createApp(): Application {
   const app = express();
@@ -16,9 +16,6 @@ export function createApp(): Application {
   // Globális middleware-ek
   app.use(cors());
   app.use(express.json());
-
-  // API Route-ok
-  app.use('/api/analysis', createAnalysisRouter(driver));
 
   // Health check endpoint
   app.get('/health', (req: Request, res: Response) => {
@@ -36,6 +33,8 @@ export function createApp(): Application {
 
 
   app.use('/api/metadata', metadataRouter);
+
+  app.use('/api', retrievalRoutes);
 
 
   return app;

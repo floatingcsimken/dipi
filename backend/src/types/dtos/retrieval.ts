@@ -1,0 +1,23 @@
+export interface RetrievalParamsDto {
+  techniqueIds?: string[];
+  softwareNames?: string[];
+  platforms?: string[];
+}
+
+export interface MitigationItemDto {
+  mitigationId: string;
+  name: string;
+  description: string | null;
+}
+
+export interface TechniqueMitigationResultDto {
+  techniqueId: string;
+  techniqueName: string;
+  platforms: string[];
+  mitigations: MitigationItemDto[];
+}
+
+export interface MetadataResponseDto {
+  platforms: string[];
+  sectors: { id: string; name: string }[];
+}
