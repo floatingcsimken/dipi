@@ -17,7 +17,13 @@ export interface TechniqueMitigationResultDto {
   mitigations: MitigationItemDto[];
 }
 
-export interface MetadataResponseDto {
-  platforms: string[];
-  sectors: { id: string; name: string }[];
+export interface AggregatedMitigationDto extends MitigationItemDto {
+  mitigatedTechniqueIds: string[];
+  coverageScore: number; // 0.0 - 1.0 közötti arány
+}
+
+export interface RetrievalResponseDto {
+  totalTechniques: number;
+  byTechnique: TechniqueMitigationResultDto[];
+  rankedMitigations: AggregatedMitigationDto[];
 }

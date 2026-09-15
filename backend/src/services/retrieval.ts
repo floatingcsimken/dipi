@@ -1,44 +1,52 @@
+
 import { RetrievalRepository } from '../repositories/retrieval';
 import {
   RetrievalParamsDto,
-  TechniqueMitigationResultDto,
+  RetrievalResponseDto,
 } from '../types/dtos/retrieval';
+import { CoverageScoreService } from './coverageScore';
 
 export class RetrievalService {
-  constructor(private repository: RetrievalRepository) {}
+  constructor(
+    private repository: RetrievalRepository,
+    private scoreService: CoverageScoreService
+  ) {}
+  
+  public async getMitigations(params: RetrievalParamsDto): Promise<RetrievalResponseDto> {
+    const rawTechniques = Array.isArray(params.techniqueIds) ? params.techniqueIds : [];
+    const rawSoftware = Array.isArray(params.softwareNames) ? params.softwareNames : [];
+    const rawPlatforms = Array.isArray(params.platforms) ? params.platforms : [];
 
-  /**
-   * Tisztítja a bemeneti paramétereket és lekéri a mitigációkat a repository-ból.
-   */
-  public async getMitigations(params: RetrievalParamsDto): Promise<TechniqueMitigationResultDto[]> {
-    // 1. Normalizálás: szóközök levágása, üres elemek és duplikációk kiszűrése
-    const sanitizedTechniques = this.sanitizeArray(params.techniqueIds);
-    const sanitizedSoftware = this.sanitizeArray(params.softwareNames);
-    const sanitizedPlatforms = this.sanitizeArray(params.platforms);
+    const sanitizedParams: RetrievalParamsDto = {
+      techniqueIds: Array.from(new Set(rawTechniques.map((id) => id.trim()).filter((id) => id.length > 0))),
+      softwareNames: Array.from(new Set(rawSoftware.map((s) => s.trim()).filter((s) => s.length > 0))),
+      platforms: Array.from(new Set(rawPlatforms.map((p) => p.trim()).filter((p) => p.length > 0))),
+    };
 
-    // 2. Rövidzár: ha se technika, se szoftver nincs megadva, felesleges a gráfhoz fordulni
-    if (sanitizedTechniques.length === 0 && sanitizedSoftware.length === 0) {
-      return [];
+    // Ha nincs mit lekérdezni, 500 helyett üres lista tér vissza azonnal
+    if (sanitizedParams.techniqueIds!.length === 0 && sanitizedParams.softwareNames!.length === 0) {
+      return {
+        totalTechniques: 0,
+        byTechnique: [],
+        rankedMitigations: [],
+      };
     }
 
-    // 3. Adatlekérés a DAL-on keresztül
-    return await this.repository.getMitigations({
-      techniqueIds: sanitizedTechniques,
-      softwareNames: sanitizedSoftware,
-      platforms: sanitizedPlatforms,
-    });
-  }
+    const byTechnique = await this.repository.getMitigations(sanitizedParams);
 
-  private sanitizeArray(items?: string[]): string[] {
-    if (!items || !Array.isArray(items)) {
-      return [];
-    }
-    return Array.from(
-      new Set(
-        items
-          .map((item) => (typeof item === 'string' ? item.trim() : ''))
-          .filter((item) => item.length > 0)
-      )
+    // Meghatározzuk a megtalált egyedi technikák számát
+    const uniqueFoundTechniqueIds = new Set(byTechnique.map((t) => t.techniqueId));
+    const totalTechniques = Math.max(sanitizedParams.techniqueIds!.length, uniqueFoundTechniqueIds.size);
+
+    const rankedMitigations = this.scoreService.calculateCoverage(
+      byTechnique,
+      totalTechniques
     );
+
+    return {
+      totalTechniques,
+      byTechnique,
+      rankedMitigations,
+    };
   }
 }
