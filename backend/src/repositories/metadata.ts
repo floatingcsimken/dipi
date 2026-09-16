@@ -57,4 +57,32 @@ export class MetadataRepository {
       await session.close();
     }
   }
+
+  /**
+   * Ellenőrzi, hogy az adott azonosítók (externalId vagy stixId) léteznek-e az adatbázisban,
+   * és visszaadja a létező technikák azonosítóit és neveit.
+   */
+  public async validateTechniqueIds(ids: string[]): Promise<Array<{ id: string; name: string }>> {
+    if (!ids || ids.length === 0) {
+      return [];
+    }
+
+    const session: Session = this.driver.session();
+
+    const query = `
+      MATCH (t:AttackPattern)
+      WHERE (t.externalId IN $ids OR t.stixId IN $ids)
+      RETURN DISTINCT coalesce(t.externalId, t.stixId) AS id, t.name AS name
+    `;
+
+    try {
+      const result = await session.run(query, { ids });
+      return result.records.map((record) => ({
+        id: record.get('id'),
+        name: record.get('name'),
+      }));
+    } finally {
+      await session.close();
+    }
+  }
 }

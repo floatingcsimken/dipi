@@ -8,6 +8,7 @@ import cors from 'cors';
 import { metadataRouter } from './routes/metadata';
 import { getDriver } from './config/database';
 import retrievalRoutes from './routes/retrieval';
+import { createAgentRouter } from './routes/agent';
 
 export function createApp(): Application {
   const app = express();
@@ -35,7 +36,7 @@ export function createApp(): Application {
   app.use('/api/metadata', metadataRouter);
 
   app.use('/api', retrievalRoutes);
-
+  app.use('/api/agent', createAgentRouter(driver));
 
   return app;
 }

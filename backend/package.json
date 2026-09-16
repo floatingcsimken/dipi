@@ -17,7 +17,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.6.1",
     "express": "^4.19.2",
-    "neo4j-driver": "^5.20.0"
+    "neo4j-driver": "^5.20.0",
+    "openai": "^7.15.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
