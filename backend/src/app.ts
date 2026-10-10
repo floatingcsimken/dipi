@@ -23,6 +23,14 @@ export function createApp(): Application {
     res.status(200).json({ status: 'OK', timestamp: new Date().toISOString() });
   });
 
+  
+
+
+  app.use('/api/metadata', metadataRouter);
+
+  app.use('/api/agent', createAgentRouter(driver));
+  app.use('/api', retrievalRoutes);
+
   // Globális hibakezelő middleware (Centralized Error Handling)
   app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     console.error('💥 [Server Error]:', err);
@@ -31,12 +39,5 @@ export function createApp(): Application {
       details: err.message 
     });
   });
-
-
-  app.use('/api/metadata', metadataRouter);
-
-  app.use('/api', retrievalRoutes);
-  app.use('/api/agent', createAgentRouter(driver));
-
   return app;
 }

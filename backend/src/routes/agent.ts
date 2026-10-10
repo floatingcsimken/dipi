@@ -21,5 +21,7 @@ export function createAgentRouter(driver: Driver): Router {
 
   router.post('/investigate', agentController.investigate);
 
+  router.post('/chat', agentController.chat);
+
   return router;
 }

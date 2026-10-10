@@ -22,6 +22,7 @@ export interface AggregatedMitigationDto extends MitigationItemDto {
   coverageScore: number; // 0.0 - 1.0 közötti arány
 }
 
+
 export interface RetrievalResponseDto {
   totalTechniques: number;
   byTechnique: TechniqueMitigationResultDto[];

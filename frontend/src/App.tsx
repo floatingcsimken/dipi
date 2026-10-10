@@ -1,45 +1,53 @@
-/**
- * @file App.tsx
- * @description Az OODA Döntéstámogató Alkalmazás fő belépési és kompozíciós komponense.
- */
+import { useState, useEffect } from 'react';
+import { ReactFlow, Controls, Background, Node, Edge } from '@xyflow/react';
+import '@xyflow/react/dist/style.css';
 
-import { Header } from './components/layout/Header';
-import { ObserveSection } from './components/ooda/ObserveSection';
-import { OrientSection } from './components/ooda/OrientSection';
-import { DecideActSection } from './components/ooda/DecideActSection';
-import { useIncidentAnalysis } from './hooks/useIncidentAnalysis';
-import type { JSX } from 'react/jsx-runtime';
+export default function App() {
+  const [nodes, setNodes] = useState<Node[]>([]);
+  const [edges, setEdges] = useState<Edge[]>([]);
 
-export default function App(): JSX.Element {
-  const { data, isLoading, errorMessage, triggerAnalysis } = useIncidentAnalysis();
+  const fetchNeighbors = async (nodeId: string) => {
+    try {
+      const res = await fetch(`http://localhost:5000/api/neighbors/${nodeId}`);
+      const data = await res.json();
+ 
+      const formattedNodes: Node[] = data.nodes.map((n: any, index: number) => ({
+        id: n.id,
+        data: { label: `${n.label} (${n.phase || 'N/A'})` },
+        position: { x: (index % 3) * 200 + 100, y: Math.floor(index / 3) * 120 + 100 },
+        style: {
+          background: n.phase === 'Observe' ? '#e1f5fe' : '#fff3e0',
+          borderRadius: '8px',
+          border: '2px solid #333',
+          padding: '10px'
+        }
+      }));
+
+      const formattedEdges: Edge[] = data.edges.map((e: any) => ({
+        id: e.id,
+        source: e.source,
+        target: e.target,
+        label: e.label,
+        animated: true
+      }));
+
+      setNodes(formattedNodes);
+      setEdges(formattedEdges);
+    } catch (err) {
+      console.error('Hiba az adatok lekérésekor:', err);
+    }
+  };
+
+  useEffect(() => {
+    fetchNeighbors('target-01');
+  }, []);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 p-6 md:p-10 font-sans antialiased">
-      <Header />
-
-      <main className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Bal oldali sáv: 1. Observe (Bemenet) */}
-        <div className="lg:col-span-4">
-          <ObserveSection
-            isLoading={isLoading}
-            errorMessage={errorMessage}
-            onSubmit={triggerAnalysis}
-          />
-        </div>
-
-        {/* Jobb oldali sáv: 2. Orient & 3. Decide/Act */}
-        <div className="lg:col-span-8 space-y-6">
-          <OrientSection
-            ranking={data?.attributionRanking}
-            hasRunAnalysis={data !== null}
-          />
-
-          <DecideActSection
-            predictedSteps={data?.predictedNextSteps}
-            hasRunAnalysis={data !== null}
-          />
-        </div>
-      </main>
+    <div style={{ width: '100vw', height: '100vh' }}>
+      <ReactFlow nodes={nodes} edges={edges} fitView>
+        <Background />
+        <Controls />
+      </ReactFlow>
     </div>
   );
 }
