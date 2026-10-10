@@ -1,53 +1,69 @@
-import { useState, useEffect } from 'react';
-import { ReactFlow, Controls, Background, Node, Edge } from '@xyflow/react';
-import '@xyflow/react/dist/style.css';
+import React, { useState } from 'react';
+import { sendChatMessage } from './services/api';
+import ChatInterface from './components/ChatInterface';
+import AnalysisView from './components/AnalysisView';
+import type { ChatMessage, InvestigateResponseDto } from './types/agent';
 
 export default function App() {
-  const [nodes, setNodes] = useState<Node[]>([]);
-  const [edges, setEdges] = useState<Edge[]>([]);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [analysisData, setAnalysisData] = useState<InvestigateResponseDto | null>(null);
 
-  const fetchNeighbors = async (nodeId: string) => {
+  const handleSendMessage = async (userText: string, forceAnalysis: boolean = false) => {
+    const newMessages: ChatMessage[] = [...messages, { role: 'user', content: userText }];
+    setMessages(newMessages);
+    setLoading(true);
+
     try {
-      const res = await fetch(`http://localhost:5000/api/neighbors/${nodeId}`);
-      const data = await res.json();
- 
-      const formattedNodes: Node[] = data.nodes.map((n: any, index: number) => ({
-        id: n.id,
-        data: { label: `${n.label} (${n.phase || 'N/A'})` },
-        position: { x: (index % 3) * 200 + 100, y: Math.floor(index / 3) * 120 + 100 },
-        style: {
-          background: n.phase === 'Observe' ? '#e1f5fe' : '#fff3e0',
-          borderRadius: '8px',
-          border: '2px solid #333',
-          padding: '10px'
-        }
-      }));
+      const response = await sendChatMessage({
+        messages: newMessages,
+        forceAnalysis
+      });
 
-      const formattedEdges: Edge[] = data.edges.map((e: any) => ({
-        id: e.id,
-        source: e.source,
-        target: e.target,
-        label: e.label,
-        animated: true
-      }));
-
-      setNodes(formattedNodes);
-      setEdges(formattedEdges);
-    } catch (err) {
-      console.error('Hiba az adatok lekérésekor:', err);
+      if (response.type === 'question') {
+        // Az agent kérdezett valamit, hozzáadjuk az asszisztens válaszát a history-hoz
+        setMessages([...newMessages, { role: 'assistant', content: response.message }]);
+      } else if (response.type === 'analysis' && response.data) {
+        // Megérkezett a végső jelentés!
+        setAnalysisData(response.data);
+      }
+    } catch (error) {
+      console.error('Hiba történt a chat során:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
-  useEffect(() => {
-    fetchNeighbors('target-01');
-  }, []);
+  const handleReset = () => {
+    setMessages([]);
+    setAnalysisData(null);
+  };
 
   return (
-    <div style={{ width: '100vw', height: '100vh' }}>
-      <ReactFlow nodes={nodes} edges={edges} fitView>
-        <Background />
-        <Controls />
-      </ReactFlow>
+    <div className="min-h-screen bg-slate-900 text-slate-100 flex flex-col items-center p-6">
+      <header className="w-full max-w-4xl mb-6 flex justify-between items-center border-b border-slate-700 pb-4">
+        <h1 className="text-xl font-bold tracking-wider text-cyan-400">CYBER THREAT INTELLIGENCE</h1>
+        {analysisData && (
+          <button 
+            onClick={handleReset}
+            className="bg-slate-800 hover:bg-slate-700 text-xs px-4 py-2 rounded-lg border border-slate-600 transition cursor-pointer"
+          >
+            Új vizsgálat indítása
+          </button>
+        )}
+      </header>
+
+      <main className="w-full max-w-4xl flex-1 flex flex-col">
+        {!analysisData ? (
+          <ChatInterface 
+            messages={messages} 
+            onSendMessage={handleSendMessage} 
+            loading={loading} 
+          />
+        ) : (
+          <AnalysisView data={analysisData} />
+        )}
+      </main>
     </div>
   );
 }
