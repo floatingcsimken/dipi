@@ -2,6 +2,7 @@ import OpenAI from 'openai';
 import { RetrievalService } from './retrieval';
 import { InvestigateResponseDto, AttackProgressionDto, AgentChatRequestDto, AgentChatResponseDto, ChatMessage } from '../types/dtos/agent';
 import { MetadataRepository } from '../repositories/metadata';
+import { AttackProgressionSchema } from '../types/investigation.schema'; 
 
 export class AgentService {
   private openai: OpenAI;
@@ -159,41 +160,38 @@ Required JSON format:
 }
 `;
 
-    const response = await this.openai.chat.completions.create({
-      model: process.env.LLM_MODEL || 'llama3.2',
-      response_format: { type: 'json_object' },
-      temperature: 0.1,
-      messages: [
-        { role: 'system', content: systemPrompt },
-        { role: 'user', content: text },
-      ],
-    });
-
-    const content = response.choices[0]?.message?.content;
-    if (!content) {
-      return {
-        origin: [],
-        currentTechniques: [],
-        predictedNext: [],
-        analystSummary: 'No analysis produced.',
-      };
-    }
-
     try {
-      const parsed = JSON.parse(content) as AttackProgressionDto;
-      return {
-        origin: Array.isArray(parsed.origin) ? parsed.origin : [],
-        currentTechniques: Array.isArray(parsed.currentTechniques) ? parsed.currentTechniques : [],
-        predictedNext: Array.isArray(parsed.predictedNext) ? parsed.predictedNext : [],
-        threatProfile: parsed.threatProfile,
-        analystSummary: parsed.analystSummary || '',
-      };
-    } catch {
+      const response = await this.openai.chat.completions.create({
+        model: process.env.LLM_MODEL || 'llama3.2',
+        response_format: { type: 'json_object' },
+        temperature: 0.1,
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: text },
+        ],
+      });
+
+      const content = response.choices[0]?.message?.content;
+      if (!content) {
+        throw new Error('Empty response from LLM');
+      }
+
+      const parsedJson = JSON.parse(content);
+
+      // ZOD VALIDÁCIÓ: Ha az LLM eltér a sémától, a Zod itt dob hibát, 
+      // amit a catch ág biztonságosan elkap.
+      const validatedData = AttackProgressionSchema.parse(parsedJson);
+
+      return validatedData as AttackProgressionDto;
+
+    } catch (error) {
+      console.error('Zod validation or LLM generation error in analyzeProgression:', error);
+      // Fallback biztonsági struktúra, ha az AI elrontotta volna
       return {
         origin: [],
         currentTechniques: [],
         predictedNext: [],
-        analystSummary: 'Failed to parse model response.',
+        analystSummary: 'Failed to parse or validate model response securely.',
       };
     }
   }
