@@ -7,7 +7,7 @@ export class AgentController {
 
   constructor(agentService: AgentService) {
     this.agentService = agentService;
-  }
+  } 
 
   investigate = async (req: Request, res: Response): Promise<void> => {
     try {
