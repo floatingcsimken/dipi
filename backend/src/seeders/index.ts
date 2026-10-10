@@ -42,7 +42,8 @@ async function runSeed() {
           'AttackPattern',
           DATA_PATHS.MITRE.ENTERPRISE_ATTACK,
           'MITRE Attack Patterns (Techniques)',
-          'attack-pattern'
+          'attack-pattern',
+          true 
         ),
         new BaseNodeSeeder(
           driver,

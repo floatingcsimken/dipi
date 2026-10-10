@@ -93,15 +93,23 @@ export class Neo4jSchemaInitializer {
         query: `CREATE INDEX attack_pattern_name IF NOT EXISTS 
                 FOR (n:AttackPattern) ON (n.name)`,
       },
+
+      // --- ÚJ: VEKTOR INDEX A GRAPH RAG-HEZ (Ollama nomic-embed-text -> 768 dimenzió) ---
+      {
+        name: 'Vector Index: AttackPattern embeddings',
+        query: `CREATE VECTOR INDEX technique_vector_index IF NOT EXISTS 
+                FOR (n:AttackPattern) ON (n.embedding) 
+                OPTIONS { indexConfig: { \`vector.dimensions\`: 768, \`vector.similarity_function\`: 'cosine' } }`,
+      },
     ];
 
-    console.log('⚙️ [Schema] Neo4j kényszerek és indexek ellenőrzése / inicializálása...');
+    console.log('⚙️ [Schema] Neo4j kényszerek, indexek és vektor index ellenőrzése / inicializálása...');
 
     try {
       for (const item of queries) {
         await session.run(item.query);
       }
-      console.log('✅ [Schema] Kényszerek és indexek sikeresen beállítva.\n');
+      console.log('✅ [Schema] Kényszerek, indexek és vektor index sikeresen beállítva.\n');
     } catch (error) {
       console.error('❌ [Schema] Hiba az indexek/kényszerek létrehozása közben:', error);
       throw error;
